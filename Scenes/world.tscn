@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://6wn4qte7xmtk"]
+
+[ext_resource type="PackedScene" uid="uid://l6arc5v20nsc" path="res://Scenes/froak_frodinand.tscn" id="1_rvt0n"]
+
+[node name="World" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(385, 217)
+zoom = Vector2(1.5, 1.5)
+
+[node name="FroakFrodinand" parent="." instance=ExtResource("1_rvt0n")]
+position = Vector2(96, 269)

@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://l6arc5v20nsc"]
+
+[ext_resource type="Texture2D" uid="uid://ddfnbpnxpkkgo" path="res://Assets/Character/FroakFrodinand.png" id="1_qx44n"]
+
+[sub_resource type="GDScript" id="GDScript_uqswi"]
+script/source = "extends CharacterBody2D
+
+var h_movespeed = 10000 #velocidad de movimiento horizontal
+var v_movespeed = 7500 #velocidad de movimiento vertical, mas baja que la horizontal para dar efecto 3D
+
+func _physics_process(delta): 
+	###Movimiento del jugador
+	if Input.is_action_pressed(\"Left\"):
+		velocity.x = -h_movespeed*delta
+	elif Input.is_action_pressed(\"Right\"):
+		velocity.x = h_movespeed*delta
+	else:
+		velocity.x = 0
+	if Input.is_action_pressed(\"Up\"):
+		velocity.y = -v_movespeed*delta
+	elif Input.is_action_pressed(\"Down\"):
+		velocity.y = v_movespeed*delta
+	else:
+		velocity.y = 0 
+	###Normalizar las diagonales
+	if Input.is_action_pressed(\"Up\") and Input.is_action_pressed(\"Left\"):
+		velocity = velocity.limit_length(7000)
+	if Input.is_action_pressed(\"Up\") and Input.is_action_pressed(\"Right\"):
+		velocity = velocity.limit_length(7000)
+	if Input.is_action_pressed(\"Down\") and Input.is_action_pressed(\"Left\"):
+		velocity = velocity.limit_length(7000)
+	if Input.is_action_pressed(\"Down\") and Input.is_action_pressed(\"Right\"):
+		velocity = velocity.limit_length(7000)
+	move_and_slide()
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n4u4i"]
+radius = 13.0
+height = 50.0
+
+[node name="FroakFrodinand" type="CharacterBody2D"]
+y_sort_enabled = true
+slide_on_ceiling = false
+floor_stop_on_slope = false
+script = SubResource("GDScript_uqswi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 29)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n4u4i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, 3)
+texture = ExtResource("1_qx44n")
+hframes = 4
+vframes = 3

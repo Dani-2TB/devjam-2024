@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://6wn4qte7xmtk"]
+[gd_scene load_steps=3 format=3 uid="uid://6wn4qte7xmtk"]
 
 [ext_resource type="PackedScene" uid="uid://l6arc5v20nsc" path="res://Scenes/froak_frodinand.tscn" id="1_rvt0n"]
+[ext_resource type="PackedScene" uid="uid://duviprc04cfdx" path="res://Scenes/generador.tscn" id="2_gir22"]
 
 [node name="World" type="Node2D"]
+
+[node name="Area2D" parent="." instance=ExtResource("2_gir22")]
 
 [node name="FroakFrodinand" parent="." instance=ExtResource("1_rvt0n")]
 position = Vector2(96, 269)
@@ -14,3 +17,6 @@ position = Vector2(-2, -3)
 limit_top = 0
 limit_bottom = 360
 drag_horizontal_enabled = true
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-226, 3)

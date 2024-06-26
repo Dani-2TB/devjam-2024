@@ -2,13 +2,11 @@
 
 [ext_resource type="Script" path="res://Scripts/Player/character_controller.gd" id="1_cm6p0"]
 [ext_resource type="Texture2D" uid="uid://ddfnbpnxpkkgo" path="res://Assets/Character/FroakFrodinand.png" id="1_qx44n"]
+[ext_resource type="Texture2D" uid="uid://bbw0whlj3e0l6" path="res://icon.svg" id="2_og64m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n4u4i"]
 radius = 13.0
 height = 50.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8c2x"]
-size = Vector2(113.5, 20)
 
 [node name="FroakFrodinand" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -20,15 +18,18 @@ script = ExtResource("1_cm6p0")
 position = Vector2(0, 29)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_n4u4i")
+debug_color = Color(0.94902, 0, 0.564706, 1)
+
+[node name="Icon" type="Sprite2D" parent="CollisionShape2D"]
+visible = false
+position = Vector2(-30, 1.00011)
+rotation = -1.5708
+scale = Vector2(0.859375, 0.171875)
+texture = ExtResource("2_og64m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3, 3)
 texture = ExtResource("1_qx44n")
 hframes = 4
 vframes = 3
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_t8c2x")
+frame = 3

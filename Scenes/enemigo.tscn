@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6lwewcm3ro7t"]
+
+[ext_resource type="Texture2D" uid="uid://bbw0whlj3e0l6" path="res://icon.svg" id="1_sjjmc"]
+[ext_resource type="Texture2D" uid="uid://pdxtqym388k6" path="res://Assets/Character/WickedBoar.png" id="2_av28x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_adw10"]
+radius = 13.0
+height = 50.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1dga"]
+size = Vector2(113.5, 20)
+
+[node name="Node2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 29)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_adw10")
+debug_color = Color(0.94902, 0, 0.564706, 1)
+
+[node name="Icon" type="Sprite2D" parent="CollisionShape2D"]
+visible = false
+position = Vector2(-30, 1.00011)
+rotation = -1.5708
+scale = Vector2(0.859375, 0.171875)
+texture = ExtResource("1_sjjmc")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(-135, 2.00049)
+rotation = -1.5708
+texture = ExtResource("2_av28x")
+hframes = 7
+vframes = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_y1dga")

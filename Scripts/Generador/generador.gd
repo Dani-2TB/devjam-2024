@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 
 func spawn():
 	if buleano_generador:
-		$contador.start()
+		get_node("contador").start()
 		buleano_generador = false
 		var instancia_enem = escena_enemigo.instantiate()
 		instancia_enem.position = Vector2(random.randi_range(-218,401),random.randi_range(14,345))

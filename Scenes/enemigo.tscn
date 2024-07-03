@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6lwewcm3ro7t"]
+[gd_scene load_steps=6 format=3 uid="uid://c6lwewcm3ro7t"]
 
+[ext_resource type="Script" path="res://Scripts/enemy/enemigo.gd" id="1_5d27f"]
 [ext_resource type="Texture2D" uid="uid://bbw0whlj3e0l6" path="res://icon.svg" id="1_sjjmc"]
 [ext_resource type="Texture2D" uid="uid://pdxtqym388k6" path="res://Assets/Character/WickedBoar.png" id="2_av28x"]
 
@@ -11,6 +12,7 @@ height = 50.0
 size = Vector2(113.5, 20)
 
 [node name="Node2D" type="CharacterBody2D"]
+script = ExtResource("1_5d27f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 29)

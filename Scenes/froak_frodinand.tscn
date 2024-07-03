@@ -8,7 +8,7 @@
 radius = 13.0
 height = 50.0
 
-[node name="FroakFrodinand" type="CharacterBody2D"]
+[node name="FroakFrodinand" type="CharacterBody2D" groups=["Jugador"]]
 y_sort_enabled = true
 slide_on_ceiling = false
 floor_stop_on_slope = false

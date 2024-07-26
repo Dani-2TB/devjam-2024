@@ -5,30 +5,6 @@ extends CharacterBody2D
 var input: Vector2 = Vector2.ZERO
 
 func _physics_process(delta): 
-	
-	####Movimiento del jugador
-	#if Input.is_action_pressed("Left"):
-		#velocity.x = -h_movespeed*delta
-	#elif Input.is_action_pressed("Right"):
-		#velocity.x = h_movespeed*delta
-	#else:
-		#velocity.x = 0
-	#if Input.is_action_pressed("Up"):
-		#velocity.y = -v_movespeed*delta
-	#elif Input.is_action_pressed("Down"):
-		#velocity.y = v_movespeed*delta
-	#else:
-		#velocity.y = 0
-	####Normalizar las diagonales
-	#if Input.is_action_pressed("Up") and Input.is_action_pressed("Left"):
-		#velocity = velocity.limit_length(7000)
-	#if Input.is_action_pressed("Up") and Input.is_action_pressed("Right"):
-		#velocity = velocity.limit_length(7000)
-	#if Input.is_action_pressed("Down") and Input.is_action_pressed("Left"):
-		#velocity = velocity.limit_length(7000)
-	#if Input.is_action_pressed("Down") and Input.is_action_pressed("Right"):
-		#velocity = velocity.limit_length(7000)
-	#@onready var colision = $Area2D/CollisionShape2D
 	input = Input.get_vector("Left", "Right", "Up", "Down")
 	if Input.is_action_just_pressed("Left"):
 		$Sprite2D.set_scale(Vector2(-1,1))
@@ -47,7 +23,3 @@ func _physics_process(delta):
 		$Sprite2D.set_scale(Vector2(-1,1))
 
 	move_and_slide()
-
-
-		#$Area2D/CollisionShape2D.set_scale(Vector2(270,270)) 
-		

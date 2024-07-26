@@ -1,4 +1,5 @@
-extends Area2D
+extends Node2D
+class_name Generador
 
 @onready var escena_enemigo = load("res://Scenes/enemigo.tscn")
 var buleano_generador = true
@@ -11,7 +12,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	spawn()
-	
+
 func spawn():
 	if buleano_generador:
 		$contador.start()
@@ -19,7 +20,6 @@ func spawn():
 		var instancia_enem = escena_enemigo.instantiate()
 		instancia_enem.position = Vector2(random.randi_range(-218,401),random.randi_range(14,345))
 		add_child(instancia_enem)
+
 func _on_contador_timeout() -> void:
 	buleano_generador = true
-	
-

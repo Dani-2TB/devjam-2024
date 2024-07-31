@@ -4,8 +4,8 @@ class_name Jugador
 @export var h_movespeed: int = 200 #velocidad de movimiento horizontal
 @export var v_movespeed: int = 150 #velocidad de movimiento vertical, mas baja que la horizontal para dar efecto 3D
 var input: Vector2 = Vector2.ZERO
-#func _ready():
-	#add_to_group("Jugador")
+func _ready():
+	add_to_group("Jugador")
 func _physics_process(delta): 
 	
 

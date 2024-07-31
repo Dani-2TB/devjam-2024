@@ -1,12 +1,10 @@
 extends CharacterBody2D
 
-var SPEED = 200.0
-#var SPEED = 100.0
-#@export var SPEED = 100.0
-#const JUMP_VELOCITY = -400.0
-var Jugador = null
-@onready var navigation_agent_2d = get_node("NavigationAgent2D")
 
+const SPEED = 100.0
+const JUMP_VELOCITY = -400.0
+var Jugador = null
+# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	Jugador = get_tree().get_nodes_in_group("Jugador")[0]
@@ -33,7 +31,6 @@ func _physics_process(delta):
 		
 	if velocity.x !=0 and velocity.y != 0:
 		get_node("CollisionShape2D/Sprite2D")
-	
 
 	
 	

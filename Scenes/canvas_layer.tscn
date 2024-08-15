@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://v1m6hg6s7t2p"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wriol"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ntnls"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(1738, 846)
+scale = Vector2(2.88235, 2.39888)
+texture_normal = SubResource("CompressedTexture2D_wriol")
+texture_pressed = SubResource("CompressedTexture2D_ntnls")
+action = "Left"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
+position = Vector2(2201.99, 849)
+scale = Vector2(-2.93053, 2.42974)
+texture_normal = SubResource("CompressedTexture2D_wriol")
+texture_pressed = SubResource("CompressedTexture2D_ntnls")
+action = "Right"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="."]
+position = Vector2(2064, 1295)
+rotation = 1.5708
+scale = Vector2(-2.93053, 2.42974)
+texture_normal = SubResource("CompressedTexture2D_wriol")
+texture_pressed = SubResource("CompressedTexture2D_ntnls")
+action = "Down"
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="."]
+position = Vector2(1896, 614)
+rotation = -1.5708
+scale = Vector2(-2.93053, 2.42974)
+texture_normal = SubResource("CompressedTexture2D_wriol")
+texture_pressed = SubResource("CompressedTexture2D_ntnls")
+action = "Up"

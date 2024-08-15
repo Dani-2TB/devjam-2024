@@ -6,6 +6,6 @@
 script = ExtResource("1_htelw")
 
 [node name="contador" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 5.025
 
 [connection signal="timeout" from="contador" to="." method="_on_contador_timeout"]

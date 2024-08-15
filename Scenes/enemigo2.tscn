@@ -1,57 +1,49 @@
-[gd_scene load_steps=25 format=3 uid="uid://c6lwewcm3ro7t"]
+[gd_scene load_steps=16 format=3 uid="uid://dwvsdllf5bcbs"]
 
-[ext_resource type="Script" path="res://Scripts/enemy/enemigo.gd" id="1_5d27f"]
-[ext_resource type="Texture2D" uid="uid://dlmuqatvue67k" path="res://Assets/Character/Wicked Boar/10.png" id="2_27e8m"]
-[ext_resource type="Texture2D" uid="uid://d2wngdyfkb7h8" path="res://Assets/Character/KF Metalbat.png" id="2_giyme"]
-[ext_resource type="Texture2D" uid="uid://7853tyd3syh6" path="res://Assets/Character/Wicked Boar/4.png" id="3_jeb08"]
-[ext_resource type="Texture2D" uid="uid://cw4kfjwpf3ibl" path="res://Assets/Character/Wicked Boar/5.png" id="4_ny8lj"]
-[ext_resource type="Texture2D" uid="uid://m7wj7gif1c4q" path="res://Assets/Character/Wicked Boar/6.png" id="5_rwki6"]
-[ext_resource type="Texture2D" uid="uid://cfvkgq35lw5ai" path="res://Assets/Character/Wicked Boar/3.png" id="6_ti7kd"]
-[ext_resource type="Texture2D" uid="uid://b4cmwhrh6vchv" path="res://Assets/Character/Wicked Boar/8.png" id="7_e5d88"]
-[ext_resource type="Texture2D" uid="uid://cufstou4e46ru" path="res://Assets/Character/Wicked Boar/9.png" id="7_r3iu7"]
-[ext_resource type="Texture2D" uid="uid://gomyf1gpbe66" path="res://Assets/Character/Wicked Boar/11.png" id="8_yro30"]
+[ext_resource type="Script" path="res://Scripts/enemy/enemigo.gd" id="1_b4pv3"]
+[ext_resource type="Texture2D" uid="uid://d2wngdyfkb7h8" path="res://Assets/Character/KF Metalbat.png" id="2_3ly2w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcqvl"]
 size = Vector2(29.0002, 46.9999)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_keoph"]
-atlas = ExtResource("2_giyme")
+atlas = ExtResource("2_3ly2w")
 region = Rect2(580, 187, 106, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ybvw"]
-atlas = ExtResource("2_giyme")
+atlas = ExtResource("2_3ly2w")
 region = Rect2(580, 127, 106, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p5fnw"]
-atlas = ExtResource("2_giyme")
+atlas = ExtResource("2_3ly2w")
 region = Rect2(580, 67, 106, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpv1m"]
-atlas = ExtResource("2_giyme")
+atlas = ExtResource("2_3ly2w")
 region = Rect2(498, 127, 86, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_08fjg"]
-atlas = ExtResource("2_giyme")
+atlas = ExtResource("2_3ly2w")
 region = Rect2(580, 7, 106, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4mykn"]
-atlas = ExtResource("2_giyme")
+atlas = ExtResource("2_3ly2w")
 region = Rect2(498, 187, 86, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kb3co"]
-atlas = ExtResource("2_giyme")
+atlas = ExtResource("2_3ly2w")
 region = Rect2(498, 67, 86, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v3pg6"]
-atlas = ExtResource("2_giyme")
+atlas = ExtResource("2_3ly2w")
 region = Rect2(498, 7, 86, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dsuob"]
-atlas = ExtResource("2_giyme")
+atlas = ExtResource("2_3ly2w")
 region = Rect2(257, 126, 66, 63)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tcdm0"]
-atlas = ExtResource("2_giyme")
+atlas = ExtResource("2_3ly2w")
 region = Rect2(257, 0, 66, 63)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqam0"]
@@ -100,59 +92,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_eo1wc"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_27e8m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_jeb08")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_ny8lj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_rwki6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_ti7kd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_r3iu7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_ny8lj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_e5d88")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_yro30")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_27e8m")
-}],
-"loop": true,
-"name": &"default",
-"speed": 23.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation_1",
-"speed": 5.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1dga"]
 size = Vector2(49, 30)
 
 [node name="Node2D" type="CharacterBody2D"]
-script = ExtResource("1_5d27f")
+script = ExtResource("1_b4pv3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 3.5)
@@ -161,18 +105,11 @@ shape = SubResource("RectangleShape2D_tcqvl")
 debug_color = Color(0.94902, 0, 0.564706, 1)
 
 [node name="metalbat" type="AnimatedSprite2D" parent="CollisionShape2D"]
-visible = false
 position = Vector2(-34, 10.0001)
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_hqam0")
 autoplay = "default"
 frame_progress = 0.924559
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
-position = Vector2(-1.5, -0.499992)
-rotation = -1.5708
-sprite_frames = SubResource("SpriteFrames_eo1wc")
-frame_progress = 0.467619
 
 [node name="Area2D" type="Area2D" parent="."]
 

@@ -1,12 +1,81 @@
-[gd_scene load_steps=5 format=3 uid="uid://l6arc5v20nsc"]
+[gd_scene load_steps=13 format=3 uid="uid://l6arc5v20nsc"]
 
 [ext_resource type="Script" path="res://Scripts/Player/character_controller.gd" id="1_cm6p0"]
 [ext_resource type="Texture2D" uid="uid://ddfnbpnxpkkgo" path="res://Assets/Character/FroakFrodinand.png" id="1_qx44n"]
 [ext_resource type="Texture2D" uid="uid://bbw0whlj3e0l6" path="res://icon.svg" id="2_og64m"]
+[ext_resource type="Texture2D" uid="uid://cxieqxgl1dypq" path="res://Assets/Character/KF sprites 2 (1).png" id="4_anc7u"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n4u4i"]
-radius = 13.0
-height = 50.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hwdd"]
+size = Vector2(55, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3bnl"]
+atlas = ExtResource("1_qx44n")
+region = Rect2(0, 0, 66, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kso2"]
+atlas = ExtResource("4_anc7u")
+region = Rect2(134, 0, 67, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xosxu"]
+atlas = ExtResource("4_anc7u")
+region = Rect2(67, 0, 67, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tfeh"]
+atlas = ExtResource("4_anc7u")
+region = Rect2(0, 0, 67, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h1xq"]
+atlas = ExtResource("4_anc7u")
+region = Rect2(0, 106, 134, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihpwx"]
+atlas = ExtResource("4_anc7u")
+region = Rect2(115, 106, 115, 106)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_njbyd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3bnl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kso2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xosxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tfeh")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kso2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xosxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tfeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8h1xq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihpwx")
+}],
+"loop": false,
+"name": &"pat",
+"speed": 20.0
+}]
 
 [node name="FroakFrodinand" type="CharacterBody2D" groups=["Jugador"]]
 y_sort_enabled = true
@@ -15,9 +84,9 @@ floor_stop_on_slope = false
 script = ExtResource("1_cm6p0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 29)
+position = Vector2(-10, -6)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_n4u4i")
+shape = SubResource("RectangleShape2D_1hwdd")
 debug_color = Color(0.94902, 0, 0.564706, 1)
 
 [node name="Icon" type="Sprite2D" parent="CollisionShape2D"]
@@ -27,7 +96,14 @@ rotation = -1.5708
 scale = Vector2(0.859375, 0.171875)
 texture = ExtResource("2_og64m")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_njbyd")
+animation = &"new_animation"
+frame_progress = 0.128562
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(3, 3)
 texture = ExtResource("1_qx44n")
 hframes = 4

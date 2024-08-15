@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuwmp11brrvhn"]
+
+[ext_resource type="Script" path="res://Scripts/caja_1.gd" id="1_cvjsf"]
+[ext_resource type="PackedScene" uid="uid://quotftspdy6p" path="res://Scenes/colision.tscn" id="2_avhh3"]
+[ext_resource type="Script" path="res://Scripts/Area2D.gd" id="3_vc4xj"]
+[ext_resource type="Script" path="res://Scripts/Timer.gd" id="4_1dcyl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nf6g"]
+size = Vector2(271, 152)
+
+[node name="caja1" type="StaticBody2D"]
+script = ExtResource("1_cvjsf")
+
+[node name="colision" parent="." instance=ExtResource("2_avhh3")]
+
+[node name="Area2D2" type="Area2D" parent="."]
+script = ExtResource("3_vc4xj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-19.5, 3)
+shape = SubResource("RectangleShape2D_4nf6g")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+script = ExtResource("4_1dcyl")

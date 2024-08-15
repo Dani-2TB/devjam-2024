@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://6wn4qte7xmtk"]
+[gd_scene load_steps=2 format=3 uid="uid://6wn4qte7xmtk"]
+
+[ext_resource type="Texture2D" uid="uid://bn7yb7jvc3xlb" path="res://Assets/Backgrounds/LabRef.png" id="1_bbpph"]
 
 [node name="World" type="Node2D"]
+
+[node name="LabRef" type="Sprite2D" parent="."]
+position = Vector2(309, 164)
+texture = ExtResource("1_bbpph")

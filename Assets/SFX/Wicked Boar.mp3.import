@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://crs8qrrc0h1a3"
+path="res://.godot/imported/Wicked Boar.mp3-4b32d7bc24c6afeeaba556198afe626a.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Wicked Boar.mp3"
+dest_files=["res://.godot/imported/Wicked Boar.mp3-4b32d7bc24c6afeeaba556198afe626a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

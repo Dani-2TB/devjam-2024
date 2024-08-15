@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc87eof2pt1cu"]
+
+[ext_resource type="Texture2D" uid="uid://cmt5nkjqkjg7q" path="res://Assets/Backgrounds/backgroundc3.png" id="1_udrus"]
+[ext_resource type="PackedScene" uid="uid://c6lwewcm3ro7t" path="res://Scenes/enemigo.tscn" id="2_mrppk"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-20, 39)
+scale = Vector2(0.947557, 0.936948)
+texture = ExtResource("1_udrus")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="pared" type="StaticBody2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Node2D/pared"]
+position = Vector2(-133, -168)
+polygon = PackedVector2Array(-683, -296, -719, 390, -467, 427, -473, 147, 693, 147, 701, 447, -725, 430, -702, 589, 1112, 577, 1109, -314)
+
+[node name="Node2D2" parent="." instance=ExtResource("2_mrppk")]
+position = Vector2(368, 82)
+
+[node name="Node2D3" parent="." instance=ExtResource("2_mrppk")]
+position = Vector2(119, 85)

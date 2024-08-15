@@ -1,12 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://bci1sistysixl"]
+[gd_scene load_steps=5 format=3 uid="uid://bci1sistysixl"]
 
 [ext_resource type="Script" path="res://Scripts/LevelManager/level_1.gd" id="1_1nxha"]
-[ext_resource type="PackedScene" uid="uid://duviprc04cfdx" path="res://Scenes/generador.tscn" id="2_yuuj1"]
+[ext_resource type="Texture2D" uid="uid://bn7yb7jvc3xlb" path="res://Assets/Backgrounds/LabRef.png" id="2_dfh4f"]
 [ext_resource type="PackedScene" uid="uid://l6arc5v20nsc" path="res://Scenes/froak_frodinand.tscn" id="3_bvmuo"]
+[ext_resource type="PackedScene" uid="uid://bucvre4pnjbmm" path="res://Scenes/nvl 1 pantalla 1.tscn" id="6_2nih4"]
 
 [node name="LevelManager" type="Node2D"]
 script = ExtResource("1_1nxha")
 
-[node name="Generador" parent="." instance=ExtResource("2_yuuj1")]
+[node name="pantallas" type="Node2D" parent="."]
+
+[node name="Node2D" parent="pantallas" instance=ExtResource("6_2nih4")]
+position = Vector2(56, -88)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-4, 3)
+texture = ExtResource("2_dfh4f")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Node2D2" type="Node2D" parent="."]
 
 [node name="FroakFrodinand" parent="." instance=ExtResource("3_bvmuo")]

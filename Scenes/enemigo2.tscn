@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://dwvsdllf5bcbs"]
+[gd_scene load_steps=19 format=3 uid="uid://dwvsdllf5bcbs"]
 
-[ext_resource type="Script" path="res://Scripts/enemy/enemigo.gd" id="1_b4pv3"]
+[ext_resource type="Script" path="res://Scripts/enemy/enemigo2.gd" id="1_vqu3l"]
 [ext_resource type="Texture2D" uid="uid://d2wngdyfkb7h8" path="res://Assets/Character/KF Metalbat.png" id="2_3ly2w"]
+[ext_resource type="Script" path="res://Scenes/AreaDisp.gd" id="3_pphq5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcqvl"]
 size = Vector2(29.0002, 46.9999)
@@ -46,6 +47,10 @@ region = Rect2(257, 126, 66, 63)
 atlas = ExtResource("2_3ly2w")
 region = Rect2(257, 0, 66, 63)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2prka"]
+atlas = ExtResource("2_3ly2w")
+region = Rect2(265, 56, 52, 56)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqam0"]
 animations = [{
 "frames": [{
@@ -86,17 +91,35 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tcdm0")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_2prka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsuob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcdm0")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_2prka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsuob")
 }],
-"loop": true,
-"name": &"new_animation",
+"loop": false,
+"name": &"disp",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6cqos"]
+radius = 129.004
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1dga"]
 size = Vector2(49, 30)
 
 [node name="Node2D" type="CharacterBody2D"]
-script = ExtResource("1_b4pv3")
+script = ExtResource("1_vqu3l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 3.5)
@@ -105,11 +128,19 @@ shape = SubResource("RectangleShape2D_tcqvl")
 debug_color = Color(0.94902, 0, 0.564706, 1)
 
 [node name="metalbat" type="AnimatedSprite2D" parent="CollisionShape2D"]
-position = Vector2(-34, 10.0001)
+position = Vector2(-4.50004, -9.49998)
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_hqam0")
+animation = &"disp"
 autoplay = "default"
-frame_progress = 0.924559
+frame = 9
+frame_progress = 1.0
+
+[node name="AreaDisp" type="Area2D" parent="."]
+script = ExtResource("3_pphq5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDisp"]
+shape = SubResource("CircleShape2D_6cqos")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -118,3 +149,8 @@ position = Vector2(0.5, 4)
 shape = SubResource("RectangleShape2D_y1dga")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

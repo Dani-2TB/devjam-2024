@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cxieqxgl1dypq" path="res://Assets/Character/KF sprites 2 (1).png" id="4_anc7u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hwdd"]
-size = Vector2(55, 51)
+size = Vector2(40.9999, 26.0001)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u3bnl"]
 atlas = ExtResource("1_qx44n")
@@ -84,7 +84,7 @@ floor_stop_on_slope = false
 script = ExtResource("1_cm6p0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-10, -6)
+position = Vector2(3.8743e-07, 1.5)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_1hwdd")
 debug_color = Color(0.94902, 0, 0.564706, 1)
@@ -99,8 +99,6 @@ texture = ExtResource("2_og64m")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_njbyd")
-animation = &"new_animation"
-frame_progress = 0.128562
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

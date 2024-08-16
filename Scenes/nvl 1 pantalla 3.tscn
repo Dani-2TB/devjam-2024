@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc87eof2pt1cu"]
+[gd_scene load_steps=6 format=3 uid="uid://bc87eof2pt1cu"]
 
+[ext_resource type="Script" path="res://Scripts/LevelManager/nvl 1 pantalla 3.gd" id="1_qfhiv"]
 [ext_resource type="Texture2D" uid="uid://cmt5nkjqkjg7q" path="res://Assets/Backgrounds/backgroundc3.png" id="1_udrus"]
-[ext_resource type="PackedScene" uid="uid://c6lwewcm3ro7t" path="res://Scenes/enemigo.tscn" id="2_mrppk"]
+[ext_resource type="PackedScene" uid="uid://dwvsdllf5bcbs" path="res://Scenes/enemigo2.tscn" id="2_sah0w"]
+[ext_resource type="Script" path="res://Scripts/Area2D (2).gd" id="4_uhj5s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5tap1"]
+size = Vector2(44, 78)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_qfhiv")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(-20, 39)
@@ -18,8 +24,16 @@ texture = ExtResource("1_udrus")
 position = Vector2(-133, -168)
 polygon = PackedVector2Array(-683, -296, -719, 390, -467, 427, -473, 147, 693, 147, 701, 447, -725, 430, -702, 589, 1112, 577, 1109, -314)
 
-[node name="Node2D2" parent="." instance=ExtResource("2_mrppk")]
-position = Vector2(368, 82)
+[node name="Node2D3" parent="." instance=ExtResource("2_sah0w")]
+position = Vector2(239, 25)
 
-[node name="Node2D3" parent="." instance=ExtResource("2_mrppk")]
-position = Vector2(119, 85)
+[node name="Node2D2" parent="." instance=ExtResource("2_sah0w")]
+position = Vector2(-97, 25)
+
+[node name="Area2D8" type="Area2D" parent="."]
+position = Vector2(523, 123)
+script = ExtResource("4_uhj5s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D8"]
+position = Vector2(-12, 29)
+shape = SubResource("RectangleShape2D_5tap1")

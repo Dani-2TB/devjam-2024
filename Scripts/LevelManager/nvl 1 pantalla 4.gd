@@ -1,6 +1,6 @@
 extends Node2D
 
-var instan3 = 0
+var instan5 = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var Area2DN = get_node("Area2D8")
@@ -15,19 +15,18 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body is CharacterBody2D:
+	if body is Jugador:
 	#detecta si el jugador entro al area2d
-		var nv3 = load("res://Scenes/nvl 1 pantalla 3.tscn")
-		instan3 = nv3.instantiate()
+		var nv5 = load("res://Scenes/nvl 1 pantalla 5.tscn")
+		instan5 = nv5.instantiate()
 		#Carga e instancia al nodo
-		get_parent().get_node(".").add_child(instan3)
+		get_parent().get_node(".").add_child(instan5)
 		#hace un get parent para añadir la escena instanciada
 		get_parent().get_parent().get_node("FroakFrodinand").set_position(Vector2(-500,-1))
 		#Pone al jugador en el principio de la escena
-		print("entra2")
+		print("entra4")
 		#hace un print para yo poder monitorear cuantas veces cambió de escena
 		get_node(".").queue_free()
 		#borra el nodo de la escena anterior
 
 		
-	

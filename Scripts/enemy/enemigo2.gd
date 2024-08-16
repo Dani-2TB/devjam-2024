@@ -9,10 +9,10 @@ var Jugador = null
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
-	var AreaP = get_node("AreaP")
-	var resulta = AreaP.connect("body_entered", Callable(self, "_on_area_2d_body_entered"))
+	var AreaD = get_node("AreaDisp")
+	var resulta = AreaD.connect("body_entered", Callable(self, "_on_area_2d_body_entered"))
 	Jugador = get_tree().get_nodes_in_group("Jugador")[0]
-	get_node("CollisionShape2D/AnimatedSprite2D").play("default")
+	get_node("CollisionShape2D/metalbat").play("default")
 func _process(delta: float) -> void:
 	seguir()
 	
@@ -26,27 +26,26 @@ func _physics_process(delta):
 
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction < 0 and velocity.x < 0:
-		get_node("CollisionShape2D/AnimatedSprite2D").set_scale(Vector2(1,1))
+		get_node("CollisionShape2D/metalbat").set_scale(Vector2(1,1))
 		#Input.is_action_just_pressed("Left"):
 		
 	elif direction > 0 and velocity.x > 0: 
-		get_node("CollisionShape2D/AnimatedSprite2D").set_scale(Vector2(-1,1))
+		get_node("CollisionShape2D/metalbat").set_scale(Vector2(-1,1))
 		
 		#El velocity.x revisa si el enemigo se esta mpoviendo hacia la derecha o izquierdaa para voltearse
 		
 	if velocity.x !=0 and velocity.y != 0:
-		get_node("CollisionShape2D/AnimatedSprite2D")
-	
+		get_node("CollisionShape2D/metalbat")
 func _on_area_2d_body_entered(body):
 	if body is Jugador:
 	#detecta si el jugador entro al area2d
 		SPEED = 1
 		get_node("Timer").start()
-		get_node("CollisionShape2D/AnimatedSprite2D").play("puño")
+		get_node("CollisionShape2D/metalbat").play("disp")
 
 	
 
 
 func _on_timer_timeout():
 	SPEED = 50.0
-	get_node("CollisionShape2D/AnimatedSprite2D").play("default")
+	get_node("CollisionShape2D/metalbat").play("default")

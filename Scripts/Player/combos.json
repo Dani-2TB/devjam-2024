@@ -1,4 +1,4 @@
 {
-	"combo1": ["x", "x", "atk"],
-	"combo2": ["x", "up", "atk"]
+	"TaekCombo": ["attack", "attack", "kick", "kick"],
+	"UBHC": ["attack", "kick", "attack", "kick", "kick"]
 }

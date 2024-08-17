@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b50x8d1dakx7e"]
+[gd_scene load_steps=3 format=3 uid="uid://b50x8d1dakx7e"]
 
 [ext_resource type="Script" path="res://Scripts/Player/combo_manager.gd" id="1_20h6i"]
+[ext_resource type="JSON" path="res://Scripts/Player/combos.json" id="2_6v8oo"]
 
 [node name="ComboManager" type="Node2D"]
 script = ExtResource("1_20h6i")
+combos_file = ExtResource("2_6v8oo")
+combo_time = 0.3
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.3
+[node name="ComboTimer" type="Timer" parent="."]
+
+[connection signal="execute_combo" from="." to="." method="_on_execute_combo"]

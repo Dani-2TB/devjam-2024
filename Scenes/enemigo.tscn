@@ -1,23 +1,41 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6lwewcm3ro7t"]
+[gd_scene load_steps=10 format=3 uid="uid://c6lwewcm3ro7t"]
 
 [ext_resource type="Script" path="res://Scripts/enemy/enemigo.gd" id="1_5d27f"]
 [ext_resource type="Texture2D" uid="uid://bbw0whlj3e0l6" path="res://icon.svg" id="1_sjjmc"]
 [ext_resource type="Texture2D" uid="uid://pdxtqym388k6" path="res://Assets/Character/WickedBoar.png" id="2_av28x"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_adw10"]
-radius = 13.0
-height = 50.0
+[ext_resource type="Script" path="res://Scripts/componentes/componente_vida.gd" id="2_k872s"]
+[ext_resource type="Script" path="res://Scripts/componentes/componente_hitbox.gd" id="5_ngkp6"]
+[ext_resource type="Script" path="res://Scripts/componentes/componente_damage.gd" id="6_cdi0k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1dga"]
-size = Vector2(113.5, 20)
+size = Vector2(36.5, 60.75)
 
-[node name="Node2D" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o52dt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0ejq"]
+size = Vector2(38, 58)
+
+[node name="WickedBoar" type="CharacterBody2D" node_paths=PackedStringArray("vida", "damage", "hitbox") groups=["enemies"]]
 script = ExtResource("1_5d27f")
+vida = NodePath("Vida")
+damage = NodePath("damage_box")
+hitbox = NodePath("colision")
+
+[node name="Vida" type="Node2D" parent="."]
+script = ExtResource("2_k872s")
+
+[node name="colision" type="Area2D" parent="." node_paths=PackedStringArray("vida")]
+script = ExtResource("5_ngkp6")
+vida = NodePath("../Vida")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colision"]
+position = Vector2(0.25, -1.375)
+shape = SubResource("RectangleShape2D_y1dga")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 29)
+position = Vector2(0, 19)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_adw10")
+shape = SubResource("CapsuleShape2D_o52dt")
 debug_color = Color(0.94902, 0, 0.564706, 1)
 
 [node name="Icon" type="Sprite2D" parent="CollisionShape2D"]
@@ -28,14 +46,21 @@ scale = Vector2(0.859375, 0.171875)
 texture = ExtResource("1_sjjmc")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-position = Vector2(-135, 2.00049)
+position = Vector2(-136, 2.00049)
 rotation = -1.5708
 texture = ExtResource("2_av28x")
 hframes = 7
 vframes = 2
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Timer" type="Timer" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_y1dga")
+[node name="damage_box" type="Area2D" parent="."]
+script = ExtResource("6_cdi0k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_box"]
+visible = false
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_x0ejq")
+debug_color = Color(0.820907, 0.402156, 4.40077e-07, 0.42)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

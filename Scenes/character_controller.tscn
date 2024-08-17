@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=3 uid="uid://l6arc5v20nsc"]
+
+[ext_resource type="Script" path="res://Scripts/player/character_controller.gd" id="1_44oy5"]
+[ext_resource type="Script" path="res://Scripts/componentes/componente_vida.gd" id="2_6vrna"]
+[ext_resource type="Texture2D" uid="uid://ddfnbpnxpkkgo" path="res://Assets/Character/FroakFrodinand.png" id="3_hlflc"]
+[ext_resource type="Script" path="res://Scripts/componentes/componente_damage.gd" id="4_3gqyr"]
+[ext_resource type="Script" path="res://Scripts/componentes/componente_hitbox.gd" id="4_kp4yw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktbrk"]
+size = Vector2(63.75, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dad7d"]
+size = Vector2(73, 38.9999)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0pecq"]
+radius = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxgwe"]
+radius = 7.0
+height = 32.0
+
+[node name="CharacterController" type="CharacterBody2D" node_paths=PackedStringArray("vida", "golpe_box", "hitbox") groups=["Jugador"]]
+y_sort_enabled = true
+slide_on_ceiling = false
+floor_stop_on_slope = false
+script = ExtResource("1_44oy5")
+vida = NodePath("vida")
+golpe_box = NodePath("damage_box")
+hitbox = NodePath("hitbox")
+
+[node name="vida" type="Node2D" parent="."]
+script = ExtResource("2_6vrna")
+vida_max = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_hlflc")
+hframes = 4
+vframes = 3
+frame = 3
+
+[node name="Camera2D" type="Camera2D" parent="."]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="damage_box" type="Area2D" parent="."]
+script = ExtResource("4_3gqyr")
+damage_max = 10
+
+[node name="shape" type="CollisionShape2D" parent="damage_box"]
+position = Vector2(31.875, 0)
+shape = SubResource("RectangleShape2D_ktbrk")
+disabled = true
+
+[node name="canattack" type="Timer" parent="."]
+wait_time = 0.4
+
+[node name="hitbox" type="Area2D" parent="." node_paths=PackedStringArray("vida")]
+script = ExtResource("4_kp4yw")
+vida = NodePath("../vida")
+
+[node name="shape" type="CollisionShape2D" parent="hitbox"]
+visibility_layer = 2
+position = Vector2(-2, -1)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_dad7d")
+debug_color = Color(0.94902, 0, 0.564706, 0.235294)
+
+[node name="map_collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-3, 28)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0pecq")
+
+[node name="pies_box" type="Area2D" parent="." node_paths=PackedStringArray("vida")]
+script = ExtResource("4_kp4yw")
+vida = NodePath("../vida")
+
+[node name="shape" type="CollisionShape2D" parent="pies_box"]
+position = Vector2(0, 27)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_yxgwe")
+debug_color = Color(0.957154, 0.591668, 3.21353e-07, 0.419608)
+
+[connection signal="timeout" from="canattack" to="." method="_on_timer_timeout"]

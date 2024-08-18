@@ -25,6 +25,7 @@ func _on_area_2d_body_entered(body):
 		get_parent().get_parent().get_node("FroakFrodinand").set_position(Vector2(-500,-1))
 		#Pone al jugador en el principio de la escena
 		print("entra3")
+		
 		#hace un print para yo poder monitorear cuantas veces cambió de escena
 		get_node(".").queue_free()
 		#borra el nodo de la escena anterior

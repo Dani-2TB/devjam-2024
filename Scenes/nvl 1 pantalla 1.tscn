@@ -1,43 +1,53 @@
-[gd_scene load_steps=6 format=3 uid="uid://bucvre4pnjbmm"]
+[gd_scene load_steps=7 format=3 uid="uid://dkih3fj04u65g"]
 
 [ext_resource type="Script" path="res://Scripts/nivel 1.gd" id="1_yh82y"]
 [ext_resource type="Texture2D" uid="uid://b2su3purtbagj" path="res://Assets/Backgrounds/backgroundc1.png" id="2_hh5ix"]
+[ext_resource type="Texture2D" uid="uid://btiheeso4ep7" path="res://Assets/Backgrounds/back1 def.png" id="3_hewhf"]
 [ext_resource type="Script" path="res://Scripts/Area2D (2).gd" id="3_igsq2"]
 [ext_resource type="PackedScene" uid="uid://cuwmp11brrvhn" path="res://Scenes/caja_1.tscn" id="4_rqy0h"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yw3ei"]
-size = Vector2(176, 169)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40wmx"]
+size = Vector2(95.5422, 141.325)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource("1_yh82y")
 
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(312, 150)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_hh5ix")
 
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(221, 108)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("3_hewhf")
+
 [node name="Area2D8" type="Area2D" parent="."]
-position = Vector2(1041, 155)
+position = Vector2(739, 32)
+scale = Vector2(0.83, 0.83)
 script = ExtResource("3_igsq2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D8"]
-position = Vector2(-4, 53.5)
-shape = SubResource("RectangleShape2D_yw3ei")
+position = Vector2(3.61445, 95.1807)
+shape = SubResource("RectangleShape2D_40wmx")
 
 [node name="pared" type="StaticBody2D" parent="."]
+scale = Vector2(0.83, 0.83)
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="pared"]
 position = Vector2(104, 93)
+scale = Vector2(0.83, 0.83)
 polygon = PackedVector2Array(-683, -296, -716, 392, -591, 389, -560, -24, 908, -46, 1021, 160, 1018, 375, -716, 395, -702, 589, 1162, 562, 1083, -278)
 
-[node name="caja1" parent="." instance=ExtResource("4_rqy0h")]
-position = Vector2(416, 236)
-
-[node name="caja2" parent="." instance=ExtResource("4_rqy0h")]
-position = Vector2(387, 421)
-
 [node name="caja3" parent="." instance=ExtResource("4_rqy0h")]
-position = Vector2(398, 133)
+position = Vector2(398, 104)
+scale = Vector2(0.83, 0.83)
+
+[node name="caja1" parent="." instance=ExtResource("4_rqy0h")]
+position = Vector2(399, 182)
+scale = Vector2(0.83, 0.83)
 
 [node name="caja4" parent="." instance=ExtResource("4_rqy0h")]
-position = Vector2(432, 326)
+position = Vector2(399, 267)
+scale = Vector2(0.83, 0.83)

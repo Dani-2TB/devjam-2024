@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b4cmwhrh6vchv" path="res://Assets/Character/Wicked Boar/8.png" id="7_e5d88"]
 [ext_resource type="Texture2D" uid="uid://cufstou4e46ru" path="res://Assets/Character/Wicked Boar/9.png" id="7_r3iu7"]
 [ext_resource type="Texture2D" uid="uid://gomyf1gpbe66" path="res://Assets/Character/Wicked Boar/11.png" id="8_yro30"]
-[ext_resource type="Script" path="res://Scenes/AreaP.gd" id="11_4kp06"]
+[ext_resource type="Script" path="res://Scripts/LevelManager/AreaP.gd" id="11_4kp06"]
 [ext_resource type="Texture2D" uid="uid://pdxtqym388k6" path="res://Assets/Character/WickedBoar.png" id="11_olqh6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcqvl"]
@@ -107,6 +107,9 @@ size = Vector2(49, 30)
 size = Vector2(33, 15)
 
 [node name="Node2D" type="CharacterBody2D"]
+scale = Vector2(1.18, 1.18)
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_5d27f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

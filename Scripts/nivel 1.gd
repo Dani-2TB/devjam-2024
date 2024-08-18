@@ -22,7 +22,7 @@ func _on_area_2d_body_entered(body):
 		get_parent().get_node(".").add_child(instan2)
 		get_parent().get_node("Node2D").set_draw_behind_parent(true)
 		get_parent().get_parent().get_node("FroakFrodinand").set_position(Vector2(-500,-1))
-		get_parent().get_node(".").remove_child(get_parent().get_node("Node2D"))
+		get_node(".").queue_free()
 		print("entra")
 		pantalla = 2
 	

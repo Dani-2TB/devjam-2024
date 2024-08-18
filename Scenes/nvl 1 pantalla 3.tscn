@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc87eof2pt1cu"]
+[gd_scene load_steps=6 format=3 uid="uid://cod34ea3rbo0y"]
 
 [ext_resource type="Script" path="res://Scripts/LevelManager/nvl 1 pantalla 3.gd" id="1_qfhiv"]
 [ext_resource type="Texture2D" uid="uid://cmt5nkjqkjg7q" path="res://Assets/Backgrounds/backgroundc3.png" id="1_udrus"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/Area2D (2).gd" id="4_uhj5s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5tap1"]
-size = Vector2(44, 78)
+size = Vector2(44, 235)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_qfhiv")
@@ -24,8 +24,13 @@ texture = ExtResource("1_udrus")
 position = Vector2(-133, -168)
 polygon = PackedVector2Array(-683, -296, -719, 390, -467, 427, -473, 147, 693, 147, 701, 447, -725, 430, -702, 589, 1112, 577, 1109, -314)
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-17, 18, -287, 8, -290, 61, -201, 114, -157, 120, -78, 44, -15, 42, 92, 152, 223, 47, 261, 45, 273, 88, 437, 85, 440, 120, 492, 102, 484, 1)
+
 [node name="Node2D3" parent="." instance=ExtResource("2_sah0w")]
-position = Vector2(239, 25)
+position = Vector2(241, -7)
 
 [node name="Node2D2" parent="." instance=ExtResource("2_sah0w")]
 position = Vector2(-97, 25)
@@ -35,5 +40,5 @@ position = Vector2(523, 123)
 script = ExtResource("4_uhj5s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D8"]
-position = Vector2(-12, 29)
+position = Vector2(-12, 21.5)
 shape = SubResource("RectangleShape2D_5tap1")

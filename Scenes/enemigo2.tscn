@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/enemy/enemigo2.gd" id="1_vqu3l"]
 [ext_resource type="Texture2D" uid="uid://d2wngdyfkb7h8" path="res://Assets/Character/KF Metalbat.png" id="2_3ly2w"]
-[ext_resource type="Script" path="res://Scenes/AreaDisp.gd" id="3_pphq5"]
+[ext_resource type="Script" path="res://Scripts/LevelManager/AreaDisp.gd" id="3_netfe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcqvl"]
 size = Vector2(29.0002, 46.9999)
@@ -119,6 +119,7 @@ radius = 129.004
 size = Vector2(49, 30)
 
 [node name="Node2D" type="CharacterBody2D"]
+scale = Vector2(1.15, 1.15)
 script = ExtResource("1_vqu3l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -137,7 +138,7 @@ frame = 9
 frame_progress = 1.0
 
 [node name="AreaDisp" type="Area2D" parent="."]
-script = ExtResource("3_pphq5")
+script = ExtResource("3_netfe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDisp"]
 shape = SubResource("CircleShape2D_6cqos")

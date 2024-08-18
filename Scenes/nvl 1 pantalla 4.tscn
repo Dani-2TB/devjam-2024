@@ -1,49 +1,89 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgrby2dbn6fhn"]
+[gd_scene load_steps=10 format=3 uid="uid://dgrby2dbn6fhn"]
 
 [ext_resource type="Script" path="res://Scripts/LevelManager/nvl 1 pantalla 4.gd" id="1_ea3j0"]
 [ext_resource type="Texture2D" uid="uid://c5xaqw334er11" path="res://Assets/Backgrounds/backgroundc4.png" id="1_hreap"]
 [ext_resource type="PackedScene" uid="uid://dwvsdllf5bcbs" path="res://Scenes/enemigo2.tscn" id="2_7s2h8"]
 [ext_resource type="PackedScene" uid="uid://c6lwewcm3ro7t" path="res://Scenes/enemigo.tscn" id="3_7io3y"]
-[ext_resource type="Script" path="res://Scenes/Area2D3.gd" id="4_vl08t"]
+[ext_resource type="Texture2D" uid="uid://cx685b5xs4go8" path="res://Assets/Backgrounds/back4.png" id="3_w4vxp"]
+[ext_resource type="Script" path="res://Scripts/LevelManager/Area2D3.gd" id="4_vl08t"]
+[ext_resource type="PackedScene" uid="uid://44mf0saj1ehq" path="res://Scenes/laser_1.tscn" id="7_13pm6"]
+[ext_resource type="PackedScene" uid="uid://bxaebmsg3ynlp" path="res://Scenes/laser_2.tscn" id="7_cqd7k"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yiper"]
-size = Vector2(139, 283)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qild6"]
+size = Vector2(39.0318, 249.673)
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(-107, -75)
+scale = Vector2(0.83, 0.83)
 script = ExtResource("1_ea3j0")
 
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-20, 39)
-scale = Vector2(0.947557, 0.936948)
+scale = Vector2(0.83, 0.83)
 texture = ExtResource("1_hreap")
 
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(-32.5301, 75.9036)
+scale = Vector2(1.35, 1.334)
+texture = ExtResource("3_w4vxp")
+
 [node name="Node2D" type="Node2D" parent="."]
+scale = Vector2(0.83, 0.83)
 
 [node name="pared" type="StaticBody2D" parent="Node2D"]
+scale = Vector2(0.83, 0.83)
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Node2D/pared"]
-position = Vector2(-133, -168)
-polygon = PackedVector2Array(-683, -296, -719, 390, -467, 427, -473, 147, 693, 147, 701, 447, -725, 430, -702, 589, 1112, 577, 1109, -314)
+position = Vector2(-192.379, -82.1984)
+scale = Vector2(0.83, 0.83)
+polygon = PackedVector2Array(-683, -296, -880.773, 345.566, -703.775, 539.421, -676.383, 147.498, 1064.09, 136.962, 1072.52, 539.421, -710.097, 549.956, -702, 589, 1112, 577, 1109, -314)
 
 [node name="Node2D3" parent="." instance=ExtResource("2_7s2h8")]
 position = Vector2(327, 19)
+scale = Vector2(1.38, 1.38)
 
 [node name="Area2D8" type="Area2D" parent="."]
-position = Vector2(523, 123)
+position = Vector2(453.012, 146.988)
+scale = Vector2(0.83, 0.83)
 script = ExtResource("4_vl08t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D8"]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_yiper")
+position = Vector2(9.51593, -11.6127)
+shape = SubResource("RectangleShape2D_qild6")
 
 [node name="Node2D2" parent="." instance=ExtResource("3_7io3y")]
 position = Vector2(230, 136)
+scale = Vector2(1.38, 1.38)
 
 [node name="Node2D4" parent="." instance=ExtResource("3_7io3y")]
 position = Vector2(308, 138)
+scale = Vector2(1.38, 1.38)
 
 [node name="Node2D5" parent="." instance=ExtResource("3_7io3y")]
 position = Vector2(-218, 142)
+scale = Vector2(1.38, 1.38)
+
+[node name="Laser2" parent="." instance=ExtResource("7_cqd7k")]
+position = Vector2(-356.626, 136.145)
+scale = Vector2(1.2, 1.2)
+
+[node name="Laser5" parent="." instance=ExtResource("7_cqd7k")]
+position = Vector2(-356.626, 136.145)
+scale = Vector2(1.2, 1.2)
 
 [node name="Node2D6" parent="." instance=ExtResource("3_7io3y")]
 position = Vector2(-116, 142)
+scale = Vector2(1.38, 1.38)
+
+[node name="LaserM" parent="." instance=ExtResource("7_13pm6")]
+position = Vector2(156.626, 160.241)
+
+[node name="Laser3" parent="." instance=ExtResource("7_13pm6")]
+position = Vector2(-281.928, 156.626)
+
+[node name="Laser4" parent="." instance=ExtResource("7_13pm6")]
+position = Vector2(-20.482, 159.036)
+
+[node name="Laser1" parent="." instance=ExtResource("7_13pm6")]
+position = Vector2(-434.94, 153.012)

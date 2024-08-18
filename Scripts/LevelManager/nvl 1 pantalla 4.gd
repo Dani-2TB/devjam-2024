@@ -22,7 +22,7 @@ func _on_area_2d_body_entered(body):
 		#Carga e instancia al nodo
 		get_parent().get_node(".").add_child(instan5)
 		#hace un get parent para añadir la escena instanciada
-		get_parent().get_parent().get_node("FroakFrodinand").set_position(Vector2(-500,-1))
+		get_parent().get_parent().get_node("FroakFrodinand").set_position(Vector2(-500,135))
 		#Pone al jugador en el principio de la escena
 		print("entra4")
 		#hace un print para yo poder monitorear cuantas veces cambió de escena

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxaebmsg3ynlp"]
+
+[ext_resource type="Script" path="res://Scripts/caja_1.gd" id="1_edlwb"]
+[ext_resource type="Script" path="res://Scripts/Area2D.gd" id="3_eov1s"]
+[ext_resource type="Script" path="res://Scripts/Timer.gd" id="4_a455h"]
+[ext_resource type="Texture2D" uid="uid://bni58a1mledgh" path="res://Assets/Objects/Laser.png" id="5_8eoi4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nf6g"]
+size = Vector2(21, 152)
+
+[node name="Laser1" type="StaticBody2D"]
+script = ExtResource("1_edlwb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 6)
+shape = SubResource("RectangleShape2D_4nf6g")
+
+[node name="Area2D2" type="Area2D" parent="."]
+script = ExtResource("3_eov1s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(3.5, 3)
+shape = SubResource("RectangleShape2D_4nf6g")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+script = ExtResource("4_a455h")
+
+[node name="Laser" type="Sprite2D" parent="."]
+position = Vector2(69, -11.5)
+scale = Vector2(0.806513, 1.05364)
+texture = ExtResource("5_8eoi4")

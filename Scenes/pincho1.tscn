@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://b187hmyhtyp5o"]
+
+[ext_resource type="Script" path="res://Scripts/caja_1.gd" id="1_v52y4"]
+[ext_resource type="PackedScene" uid="uid://quotftspdy6p" path="res://Scenes/colision.tscn" id="2_8ww84"]
+[ext_resource type="Script" path="res://Scripts/Area2D.gd" id="3_fo7ao"]
+[ext_resource type="Script" path="res://Scripts/Timer.gd" id="4_kq53g"]
+[ext_resource type="Texture2D" uid="uid://d2xgldlyympnk" path="res://Assets/Objects/pincho.png" id="5_ft58t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nf6g"]
+size = Vector2(77, 85)
+
+[node name="pinchos" type="StaticBody2D"]
+collision_layer = 3
+script = ExtResource("1_v52y4")
+
+[node name="colision" parent="." instance=ExtResource("2_8ww84")]
+position = Vector2(-23, 18.625)
+
+[node name="Area2D2" type="Area2D" parent="."]
+script = ExtResource("3_fo7ao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-22.5, 20.5)
+shape = SubResource("RectangleShape2D_4nf6g")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.4
+script = ExtResource("4_kq53g")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-22, -24)
+scale = Vector2(1.3, 1.3)
+
+[node name="Pincho" type="Sprite2D" parent="Node2D"]
+position = Vector2(0, 35)
+texture = ExtResource("5_ft58t")

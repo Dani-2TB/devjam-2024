@@ -1,15 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi625r0nyaqyj"]
+[gd_scene load_steps=7 format=3 uid="uid://bi625r0nyaqyj"]
 
 [ext_resource type="Texture2D" uid="uid://b0j0bckvhqbj2" path="res://Assets/Backgrounds/backgroundc5.png" id="1_0ml2k"]
+[ext_resource type="Texture2D" uid="uid://bcph1xj2y7k02" path="res://Assets/Backgrounds/back5 def.png" id="1_qp6tf"]
 [ext_resource type="PackedScene" uid="uid://c6lwewcm3ro7t" path="res://Scenes/enemigo.tscn" id="2_yp44l"]
-[ext_resource type="Script" path="res://Scenes/Area2D3.gd" id="3_x472d"]
+[ext_resource type="PackedScene" uid="uid://q5nhdt2npbgh" path="res://Scenes/pinchos.tscn" id="3_wfjk6"]
+[ext_resource type="Script" path="res://Scripts/LevelManager/Area2D3.gd" id="3_x472d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2qjv"]
 size = Vector2(23, 145)
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Back5Def" type="Sprite2D" parent="."]
+position = Vector2(-10, 39)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("1_qp6tf")
+
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-20, 39)
 scale = Vector2(0.947557, 0.936948)
 texture = ExtResource("1_0ml2k")
@@ -20,7 +28,7 @@ texture = ExtResource("1_0ml2k")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Node2D/pared"]
 position = Vector2(-133, -168)
-polygon = PackedVector2Array(-683, -296, -719, 390, -467, 427, -473, 147, 693, 147, 701, 447, -725, 430, -702, 589, 1112, 577, 1109, -314)
+polygon = PackedVector2Array(-683, -296, -719, 390, -467, 427, -473, 147, 386, 170, 396, 261, 583, 250, 586, 230, 691, 227, 692, 407, 550, 403, 549, 358, 393, 353, 386, 446, -725, 430, -702, 589, 1112, 577, 1109, -314)
 
 [node name="Node2D2" parent="." instance=ExtResource("2_yp44l")]
 position = Vector2(149, 91)
@@ -35,3 +43,6 @@ script = ExtResource("3_x472d")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D8"]
 position = Vector2(-1.5, 18.5)
 shape = SubResource("RectangleShape2D_p2qjv")
+
+[node name="pinchos" parent="." instance=ExtResource("3_wfjk6")]
+position = Vector2(310, 124)

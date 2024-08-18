@@ -1,9 +1,13 @@
 extends CharacterBody2D
+@export var vida: Node2D
+@export var damage: Area2D
+@export var hitbox: Area2D
 
-
-const SPEED = 100.0
+const SPEED = 0
 const JUMP_VELOCITY = -400.0
 var Jugador = null
+var playercol:bool =false
+var canAtack:bool = true
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
@@ -18,7 +22,6 @@ func seguir():
 		move_and_slide()
 func _physics_process(delta):
 	# Add the gravity.
-
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction < 0 and velocity.x < 0:
 		get_node("CollisionShape2D/Sprite2D").set_scale(Vector2(1,1))
@@ -31,7 +34,8 @@ func _physics_process(delta):
 		
 	if velocity.x !=0 and velocity.y != 0:
 		get_node("CollisionShape2D/Sprite2D")
+		
 
-	
-	
-	
+func _on_timer_timeout():
+	canAtack= true
+

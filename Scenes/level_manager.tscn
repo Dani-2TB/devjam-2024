@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bci1sistysixl"]
 
-[ext_resource type="Script" path="res://Scripts/LevelManager/level_1.gd" id="1_1nxha"]
+[ext_resource type="Script" path="res://Scripts/level_manager/level_1.gd" id="1_1nxha"]
 [ext_resource type="PackedScene" uid="uid://duviprc04cfdx" path="res://Scenes/generador.tscn" id="2_yuuj1"]
-[ext_resource type="PackedScene" uid="uid://l6arc5v20nsc" path="res://Scenes/froak_frodinand.tscn" id="3_bvmuo"]
+[ext_resource type="PackedScene" uid="uid://l6arc5v20nsc" path="res://Scenes/character_controller.tscn" id="3_bvmuo"]
 [ext_resource type="PackedScene" uid="uid://b50x8d1dakx7e" path="res://Scenes/combo_manager.tscn" id="4_n63b1"]
 
 [node name="LevelManager" type="Node2D"]

@@ -12,6 +12,7 @@ signal execute_combo
 
 func push_input(input: String):
 	combo_queue.push_back(input)
+	timer.start()
 
 func get_combo_time():
 	return combo_time
@@ -33,13 +34,6 @@ func _ready():
 		print("error")
 
 func _process(delta):
-	if Input.is_action_just_pressed("attack"):
-		push_input("attack")
-		timer.start()
-	if Input.is_action_just_pressed("kick"):
-		push_input("kick")
-		timer.start()
-	
 	if combo_queue.size() > 0:
 		if is_in_combos():
 			var combo = get_combo()
@@ -48,8 +42,10 @@ func _process(delta):
 				execute_combo.emit()
 				combo_queue.clear()
 		else:
-			timer.stop()
-			timer.timeout.emit()
+			var last_input = combo_queue.back()
+			timer.start()
+			combo_queue.clear()
+			combo_queue.push_front(last_input)
 
 func get_combo():
 	var combo = combos_db.find_key(combo_queue)
@@ -101,7 +97,3 @@ func parse_json():
 			json.get_error_line()
 			)
 		return 0
-
-func _on_execute_combo():
-	print(combo_to_execute)
-	combo_to_execute = ""

@@ -5,4 +5,3 @@ extends Node2D
 var level = 1
 func _ready():
 	levels[level-1].instantiate()
-	

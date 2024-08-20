@@ -1,15 +1,35 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6lwewcm3ro7t"]
+[gd_scene load_steps=11 format=3 uid="uid://c6lwewcm3ro7t"]
 
 [ext_resource type="Script" path="res://scripts/enemy/wicked_boar.gd" id="1_6l5uj"]
 [ext_resource type="Script" path="res://scripts/componentes/componente_vida.gd" id="2_nmd4i"]
 [ext_resource type="Script" path="res://scripts/componentes/componente_hitbox.gd" id="3_m2fhg"]
-[ext_resource type="Texture2D" uid="uid://bbw0whlj3e0l6" path="res://icon.svg" id="4_6jyh8"]
+[ext_resource type="Texture2D" uid="uid://cht52migwa7bw" path="res://assets/Actores/Enemies/WickedBoardef.png" id="4_km1f6"]
 [ext_resource type="Script" path="res://scripts/componentes/componente_damage.gd" id="5_eb02q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1dga"]
 size = Vector2(36.5, 60.75)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o52dt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ry1j"]
+atlas = ExtResource("4_km1f6")
+region = Rect2(7, 0, 68, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ggp3f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ry1j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0ejq"]
 size = Vector2(38, 58)
@@ -37,18 +57,11 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_o52dt")
 debug_color = Color(0.94902, 0, 0.564706, 1)
 
-[node name="Icon" type="Sprite2D" parent="CollisionShape2D"]
-visible = false
-position = Vector2(-30, 1.00011)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+position = Vector2(-21, -5.99992)
 rotation = -1.5708
-scale = Vector2(0.859375, 0.171875)
-texture = ExtResource("4_6jyh8")
-
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-position = Vector2(-136, 2.00049)
-rotation = -1.5708
-hframes = 7
-vframes = 2
+sprite_frames = SubResource("SpriteFrames_ggp3f")
+animation = &"new_animation"
 
 [node name="Timer" type="Timer" parent="."]
 

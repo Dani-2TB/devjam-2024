@@ -197,13 +197,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dw6il")
 }],
-"loop": true,
-"name": &"new_animation",
+"loop": false,
+"name": &"disp2",
 "speed": 12.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6cqos"]
-radius = 129.004
+radius = 99.1457
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1dga"]
 size = Vector2(49, 30)
@@ -219,12 +219,11 @@ shape = SubResource("RectangleShape2D_tcqvl")
 debug_color = Color(0.94902, 0, 0.564706, 1)
 
 [node name="metalbat" type="AnimatedSprite2D" parent="CollisionShape2D"]
-position = Vector2(-4.50004, -9.49998)
+position = Vector2(-4.50004, -8.63041)
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_hqam0")
-animation = &"new_animation"
+animation = &"disp"
 autoplay = "default"
-frame_progress = 0.777349
 
 [node name="AreaDisp" type="Area2D" parent="."]
 script = ExtResource("3_netfe")

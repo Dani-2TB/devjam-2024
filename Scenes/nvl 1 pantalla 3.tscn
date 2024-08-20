@@ -27,10 +27,10 @@ polygon = PackedVector2Array(-683, -296, -719, 390, -467, 427, -473, 147, 693, 1
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Node2D3" parent="." instance=ExtResource("2_sah0w")]
-position = Vector2(241, -7)
+position = Vector2(255, 95)
 
 [node name="Node2D2" parent="." instance=ExtResource("2_sah0w")]
-position = Vector2(-97, 25)
+position = Vector2(-122, 108)
 
 [node name="Area2D8" type="Area2D" parent="."]
 position = Vector2(523, 123)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://l6arc5v20nsc"]
+[gd_scene load_steps=68 format=3 uid="uid://l6arc5v20nsc"]
 
 [ext_resource type="Script" path="res://Scripts/Player/character_controller.gd" id="1_cm6p0"]
 [ext_resource type="Texture2D" uid="uid://ddfnbpnxpkkgo" path="res://Assets/Character/FroakFrodinand.png" id="1_qx44n"]
@@ -177,6 +177,18 @@ region = Rect2(67, 0, 67, 106)
 [sub_resource type="AtlasTexture" id="AtlasTexture_0tfeh"]
 atlas = ExtResource("4_anc7u")
 region = Rect2(0, 0, 67, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbiec"]
+atlas = ExtResource("6_xu1rk")
+region = Rect2(0, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buut4"]
+atlas = ExtResource("6_xu1rk")
+region = Rect2(160, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ed014"]
+atlas = ExtResource("6_xu1rk")
+region = Rect2(320, 0, 160, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8h1xq"]
 atlas = ExtResource("4_anc7u")
@@ -382,6 +394,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_gbiec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buut4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ed014")
+}],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8kso2")
 }, {
 "duration": 1.0,
@@ -439,7 +465,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"sal",
-"speed": 10.0
+"speed": 14.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -475,8 +501,7 @@ texture = ExtResource("2_og64m")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_njbyd")
-animation = &"cor"
-frame_progress = 0.178285
+frame_progress = 0.503239
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

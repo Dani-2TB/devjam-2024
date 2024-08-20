@@ -24,3 +24,4 @@ texture = ExtResource("2_dfh4f")
 [node name="Node2D2" type="Node2D" parent="."]
 
 [node name="FroakFrodinand" parent="." instance=ExtResource("3_bvmuo")]
+position = Vector2(94, 57)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cod34ea3rbo0y"]
 
 [ext_resource type="Script" path="res://Scripts/LevelManager/nvl 1 pantalla 3.gd" id="1_qfhiv"]
-[ext_resource type="Texture2D" uid="uid://cmt5nkjqkjg7q" path="res://Assets/Backgrounds/backgroundc3.png" id="1_udrus"]
 [ext_resource type="PackedScene" uid="uid://dwvsdllf5bcbs" path="res://Scenes/enemigo2.tscn" id="2_sah0w"]
+[ext_resource type="Texture2D" uid="uid://cjfn01snxks2s" path="res://Assets/Backgrounds/Back3 def.png" id="2_urkgm"]
 [ext_resource type="Script" path="res://Scripts/Area2D (2).gd" id="4_uhj5s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5tap1"]
@@ -12,9 +12,9 @@ size = Vector2(44, 235)
 script = ExtResource("1_qfhiv")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(-20, 39)
-scale = Vector2(0.947557, 0.936948)
-texture = ExtResource("1_udrus")
+position = Vector2(-20.5144, 46.0404)
+scale = Vector2(1.51491, 1.51608)
+texture = ExtResource("2_urkgm")
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -25,9 +25,6 @@ position = Vector2(-133, -168)
 polygon = PackedVector2Array(-683, -296, -719, 390, -467, 427, -473, 147, 693, 147, 701, 447, -725, 430, -702, 589, 1112, 577, 1109, -314)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-17, 18, -287, 8, -290, 61, -201, 114, -157, 120, -78, 44, -15, 42, 92, 152, 223, 47, 261, 45, 273, 88, 437, 85, 440, 120, 492, 102, 484, 1)
 
 [node name="Node2D3" parent="." instance=ExtResource("2_sah0w")]
 position = Vector2(241, -7)

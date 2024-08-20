@@ -19,20 +19,25 @@ func _physics_process(delta):
 	move_and_slide()
 
 	input = Input.get_vector("Left", "Right", "Up", "Down")
+	if Input.is_action_just_pressed("z"):
+		h_movespeed = 500 
+		
 	if Input.is_action_just_pressed("Left") or Input.is_action_pressed("Left"):
 		
 		get_node("AnimatedSprite2D").set_scale(Vector2(-1,1))
-		if not Input.is_action_pressed("Space") and not Input.is_action_pressed("Left"):
+		if Input.is_action_pressed("z") or Input.is_action_just_pressed("z"):
+			get_node("AnimatedSprite2D").play("lanza")
+		if not Input.is_action_pressed("Space") and not Input.is_action_pressed("z") and not Input.is_action_pressed("Left"):
 			
 			get_node("AnimatedSprite2D").play("default")
 			
-		if not Input.is_action_pressed("Space") and Input.is_action_pressed("Left")  and Input.is_action_pressed("x"):
+		if not Input.is_action_pressed("Space") and not Input.is_action_pressed("z") and Input.is_action_pressed("Left")  and Input.is_action_pressed("x"):
 			h_movespeed = 320
 			get_node("AnimatedSprite2D").play("cor")
-		if not Input.is_action_pressed("Space") and Input.is_action_pressed("Left")  and not Input.is_action_pressed("x"):
+		if not Input.is_action_pressed("Space") and not Input.is_action_pressed("z") and Input.is_action_pressed("Left")  and not Input.is_action_pressed("x"):
 			h_movespeed = 200
 			get_node("AnimatedSprite2D").play("cam")
-		if Input.is_action_pressed("Space") and Input.is_action_pressed("Left"):
+		if Input.is_action_pressed("Space") and not Input.is_action_pressed("z") and Input.is_action_pressed("Left"):
 			get_node("AnimatedSprite2D").play("sal")
 			print("sal")
 		#$Sprite2D.set_scale(Vector2(20,20)) d	
@@ -43,15 +48,17 @@ func _physics_process(delta):
 		#print(str(get_node(".").get_position().x))
 		
 		get_node("AnimatedSprite2D").set_scale(Vector2(1,1))
-		if Input.is_action_pressed("Space") and Input.is_action_pressed("Right"):
+		if Input.is_action_pressed("z") or Input.is_action_pressed("z"):
+			get_node("AnimatedSprite2D").play("lanza")
+		if Input.is_action_pressed("Space") and not Input.is_action_pressed("z") and Input.is_action_pressed("Right"):
 			get_node("AnimatedSprite2D").play("sal")
-		if not Input.is_action_pressed("Space") and not Input.is_action_pressed("Right"):
+		if not Input.is_action_pressed("Space")  and not Input.is_action_pressed("z") and not Input.is_action_pressed("Right"):
 			get_node("AnimatedSprite2D").play("default")
 			h_movespeed = 200
-		if not Input.is_action_pressed("Space") and Input.is_action_pressed("Right") and Input.is_action_pressed("x"):
+		if not Input.is_action_pressed("Space")  and not Input.is_action_pressed("z") and Input.is_action_pressed("Right") and Input.is_action_pressed("x"):
 			get_node("AnimatedSprite2D").play("cor")
 			h_movespeed = 320
-		if not Input.is_action_pressed("Space") and Input.is_action_pressed("Right") and not Input.is_action_pressed("x"):
+		if not Input.is_action_pressed("Space")  and not Input.is_action_pressed("z") and Input.is_action_pressed("Right") and not Input.is_action_pressed("x"):
 			h_movespeed = 200
 			get_node("AnimatedSprite2D").play("cam")
 			

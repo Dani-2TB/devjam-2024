@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceu6qw4pa8beu"]
+
+[ext_resource type="Texture2D" uid="uid://dps5hb1rw4eax" path="res://assets/Objetos/temp_spawn.jpg" id="1_dwk6p"]
+
+[node name="PlayerSpawn" type="Node2D"]
+z_index = -1
+
+[node name="TempSpawn" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, 0)
+scale = Vector2(0.136871, 0.136871)
+texture = ExtResource("1_dwk6p")

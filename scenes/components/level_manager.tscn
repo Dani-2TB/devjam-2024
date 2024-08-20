@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bci1sistysixl"]
+
+[ext_resource type="Script" path="res://scripts/level_manager/level_manager.gd" id="1_vlyxb"]
+[ext_resource type="PackedScene" uid="uid://l6arc5v20nsc" path="res://scenes/entities/character_controller.tscn" id="2_qrqsg"]
+[ext_resource type="PackedScene" uid="uid://b50x8d1dakx7e" path="res://scenes/components/combo_manager.tscn" id="3_3n5aa"]
+
+[node name="LevelManager" type="Node" node_paths=PackedStringArray("player")]
+script = ExtResource("1_vlyxb")
+player = NodePath("CharacterController")
+
+[node name="CharacterController" parent="." node_paths=PackedStringArray("combo_manager") instance=ExtResource("2_qrqsg")]
+z_index = 1
+position = Vector2(69, 182)
+combo_manager = NodePath("ComboManager")
+
+[node name="ComboManager" parent="CharacterController" instance=ExtResource("3_3n5aa")]

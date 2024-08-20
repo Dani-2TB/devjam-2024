@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://jr18p7t35oyt"]
+
+[ext_resource type="Texture2D" uid="uid://cpf0pcu1f5gcc" path="res://assets/Niveles/Level_1/back2.png" id="1_rq03l"]
+[ext_resource type="PackedScene" uid="uid://ceu6qw4pa8beu" path="res://scenes/components/player_spawn.tscn" id="2_axio2"]
+
+[node name="Screen_2" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(606, 152)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("1_rq03l")
+
+[node name="ColisionesMundo" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ColisionesMundo"]
+polygon = PackedVector2Array(1173, 174, 1246, 226, 1266, -9, -80, 2, -81, 427, 1276, 427, 1258, 239, 1240, 221, 1239, 380, -20, 380, -20, 173)
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("2_axio2")]
+position = Vector2(27, 337)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddfnbpnxpkkgo"
-path="res://.godot/imported/FroakFrodinand.png-31157cc5a5ef99b72837b9f3f14a0c2c.ctex"
+uid="uid://bsfuj8fb83epv"
+path="res://.godot/imported/Froakiee_Sprites.png-b94369cfa1fc1015f23d4174dcdff11a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Character/Player/FroakFrodinand.png"
-dest_files=["res://.godot/imported/FroakFrodinand.png-31157cc5a5ef99b72837b9f3f14a0c2c.ctex"]
+source_file="res://assets/Actores/Player/Froakiee_Sprites.png"
+dest_files=["res://.godot/imported/Froakiee_Sprites.png-b94369cfa1fc1015f23d4174dcdff11a.ctex"]
 
 [params]
 

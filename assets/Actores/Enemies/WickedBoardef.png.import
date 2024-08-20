@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nn7p460i4f1p"
-path="res://.godot/imported/movimiento.png-e57aef6c9720bfd59d9e0f4cf681f205.ctex"
+uid="uid://cht52migwa7bw"
+path="res://.godot/imported/WickedBoardef.png-4dba824f1f84cec429cb351381f44ac0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Actores/Player/movimiento.png"
-dest_files=["res://.godot/imported/movimiento.png-e57aef6c9720bfd59d9e0f4cf681f205.ctex"]
+source_file="res://assets/Actores/Enemies/WickedBoardef.png"
+dest_files=["res://.godot/imported/WickedBoardef.png-4dba824f1f84cec429cb351381f44ac0.ctex"]
 
 [params]
 

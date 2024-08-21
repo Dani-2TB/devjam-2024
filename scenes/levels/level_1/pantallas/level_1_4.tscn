@@ -60,21 +60,6 @@ position = Vector2(1203, 233)
 rotation = 0.752932
 shape = SubResource("RectangleShape2D_wb7ur")
 
-[node name="WickedBoar" parent="." instance=ExtResource("3_7s656")]
-position = Vector2(403, 295)
-
-[node name="WickedBoar" parent="WickedBoar" instance=ExtResource("3_7s656")]
-position = Vector2(426, -20)
-
-[node name="Area2D3" parent="WickedBoar" instance=ExtResource("4_8xndu")]
-position = Vector2(277, -20)
-
-[node name="Area2D2" parent="WickedBoar" instance=ExtResource("4_8xndu")]
-position = Vector2(-133, 63)
-
-[node name="Area2D" parent="WickedBoar" instance=ExtResource("4_8xndu")]
-position = Vector2(-143, -79)
-
 [node name="Next" type="Area2D" parent="."]
 script = ExtResource("5_slm6a")
 
@@ -82,3 +67,18 @@ script = ExtResource("5_slm6a")
 position = Vector2(1231.85, 305.5)
 shape = SubResource("RectangleShape2D_iurds")
 debug_color = Color(0.891489, 0.252168, 0.52094, 0.42)
+
+[node name="WickedBoar" parent="." instance=ExtResource("3_7s656")]
+position = Vector2(373, 280)
+
+[node name="WickedBoar3" parent="." instance=ExtResource("3_7s656")]
+position = Vector2(820, 314)
+
+[node name="WickedBoar2" parent="." instance=ExtResource("3_7s656")]
+position = Vector2(602, 276)
+
+[node name="Area2D" parent="." instance=ExtResource("4_8xndu")]
+position = Vector2(494, 337)
+
+[node name="Area2D2" parent="." instance=ExtResource("4_8xndu")]
+position = Vector2(494, 235)

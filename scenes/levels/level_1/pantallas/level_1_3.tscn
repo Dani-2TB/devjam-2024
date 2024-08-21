@@ -52,15 +52,6 @@ shape = SubResource("RectangleShape2D_swwvx")
 [node name="PlayerSpawn" parent="." instance=ExtResource("2_s0v31")]
 position = Vector2(27, 337)
 
-[node name="WickedBoar" parent="." instance=ExtResource("3_4gygu")]
-position = Vector2(298, 337)
-
-[node name="WickedBoar2" parent="." node_paths=PackedStringArray("vida", "damage", "hitbox") instance=ExtResource("3_4gygu")]
-position = Vector2(692, 359)
-vida = NodePath("../WickedBoar/Vida")
-damage = NodePath("../WickedBoar/damage_box")
-hitbox = NodePath("../WickedBoar/hitbox")
-
 [node name="Next" type="Area2D" parent="."]
 position = Vector2(206, 178)
 script = ExtResource("4_q4m33")
@@ -70,11 +61,17 @@ position = Vector2(1035.42, 132)
 shape = SubResource("RectangleShape2D_iurds")
 debug_color = Color(0.891489, 0.252168, 0.52094, 0.42)
 
-[node name="Area2D" parent="Next/CollisionShape2D" instance=ExtResource("5_fa4d6")]
-position = Vector2(-171.424, -79)
+[node name="WickedBoar" parent="." instance=ExtResource("3_4gygu")]
+position = Vector2(444, 263)
 
-[node name="Area2D" parent="Next/CollisionShape2D/Area2D" instance=ExtResource("5_fa4d6")]
-position = Vector2(6, 95)
+[node name="WickedBoar3" parent="." instance=ExtResource("3_4gygu")]
+position = Vector2(595, 406)
 
-[node name="Area2D" parent="Next/CollisionShape2D/Area2D/Area2D" instance=ExtResource("5_fa4d6")]
-position = Vector2(-92, 73)
+[node name="WickedBoar2" parent="." instance=ExtResource("3_4gygu")]
+position = Vector2(801, 315)
+
+[node name="Area2D" parent="." instance=ExtResource("5_fa4d6")]
+position = Vector2(993, 365)
+
+[node name="Area2D2" parent="." instance=ExtResource("5_fa4d6")]
+position = Vector2(1091, 265)

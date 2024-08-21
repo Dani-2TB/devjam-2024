@@ -26,24 +26,12 @@ size = Vector2(30.8473, 232)
 [node name="Screen_2" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(606, 152)
+position = Vector2(595, 155)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("1_rq03l")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("2_axio2")]
 position = Vector2(42, 263)
-
-[node name="WickedBoar" parent="." instance=ExtResource("3_e1mfo")]
-position = Vector2(410, 276)
-
-[node name="WickedBoar3" parent="." instance=ExtResource("3_e1mfo")]
-position = Vector2(866, 282)
-
-[node name="WickedBoar2" parent="." node_paths=PackedStringArray("vida", "damage", "hitbox") instance=ExtResource("3_e1mfo")]
-position = Vector2(600, 252)
-vida = NodePath("../WickedBoar/Vida")
-damage = NodePath("../WickedBoar/damage_box")
-hitbox = NodePath("../WickedBoar/hitbox")
 
 [node name="ColisionesMundo2" type="StaticBody2D" parent="."]
 position = Vector2(-27.7906, -145)
@@ -78,3 +66,12 @@ script = ExtResource("4_d0f7s")
 position = Vector2(1126, 271.142)
 shape = SubResource("RectangleShape2D_iurds")
 debug_color = Color(0.891489, 0.252168, 0.52094, 0.42)
+
+[node name="WickedBoar" parent="." instance=ExtResource("3_e1mfo")]
+position = Vector2(696, 271)
+
+[node name="WickedBoar2" parent="." instance=ExtResource("3_e1mfo")]
+position = Vector2(474, 248)
+
+[node name="WickedBoar3" parent="." instance=ExtResource("3_e1mfo")]
+position = Vector2(306, 276)

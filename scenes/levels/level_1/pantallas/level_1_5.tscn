@@ -82,14 +82,14 @@ shape = SubResource("RectangleShape2D_nnwmr")
 position = Vector2(1555, 192)
 shape = SubResource("RectangleShape2D_nnwmr")
 
+[node name="Area2D2" parent="ColisionesMundo" instance=ExtResource("4_57x5q")]
+position = Vector2(390, 407)
+
+[node name="Area2D" parent="ColisionesMundo" instance=ExtResource("4_57x5q")]
+position = Vector2(396, 294)
+
+[node name="WickedBoar2" parent="ColisionesMundo" instance=ExtResource("3_yv8qo")]
+position = Vector2(843, 317)
+
 [node name="WickedBoar" parent="ColisionesMundo" instance=ExtResource("3_yv8qo")]
 position = Vector2(566, 379)
-
-[node name="WickedBoar" parent="ColisionesMundo/WickedBoar" instance=ExtResource("3_yv8qo")]
-position = Vector2(277, -62)
-
-[node name="Area2D" parent="ColisionesMundo/WickedBoar/WickedBoar" instance=ExtResource("4_57x5q")]
-position = Vector2(-447, -23)
-
-[node name="Area2D" parent="ColisionesMundo/WickedBoar/WickedBoar/Area2D" instance=ExtResource("4_57x5q")]
-position = Vector2(-6, 113)

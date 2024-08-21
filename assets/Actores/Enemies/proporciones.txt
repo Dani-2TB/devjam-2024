@@ -1,3 +1,0 @@
-Aquí las proporciones de la hoja de sprites para abrirlos en godot
-wickedboar (12x15)
-metalbat (8x5)

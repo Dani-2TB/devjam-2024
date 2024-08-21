@@ -1,7 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://jr18p7t35oyt"]
+[gd_scene load_steps=11 format=3 uid="uid://jr18p7t35oyt"]
 
 [ext_resource type="Texture2D" uid="uid://cpf0pcu1f5gcc" path="res://assets/Niveles/Level_1/back2.png" id="1_rq03l"]
 [ext_resource type="PackedScene" uid="uid://ceu6qw4pa8beu" path="res://scenes/components/player_spawn.tscn" id="2_axio2"]
+[ext_resource type="PackedScene" uid="uid://c6lwewcm3ro7t" path="res://scenes/entities/wicked_boar.tscn" id="3_e1mfo"]
+[ext_resource type="Script" path="res://scripts/level_manager/area_next.gd" id="4_d0f7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cd5v0"]
+size = Vector2(1346, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebeb1"]
+size = Vector2(1397.64, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awvhp"]
+size = Vector2(36.0406, 288)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swwvx"]
+size = Vector2(141.451, 121.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wb7ur"]
+size = Vector2(115.003, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iurds"]
+size = Vector2(30.8473, 232)
 
 [node name="Screen_2" type="Node2D"]
 
@@ -10,12 +30,51 @@ position = Vector2(606, 152)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("1_rq03l")
 
-[node name="ColisionesMundo" type="StaticBody2D" parent="."]
+[node name="PlayerSpawn" parent="." instance=ExtResource("2_axio2")]
+position = Vector2(42, 263)
+
+[node name="WickedBoar" parent="." instance=ExtResource("3_e1mfo")]
+position = Vector2(410, 276)
+
+[node name="WickedBoar3" parent="." instance=ExtResource("3_e1mfo")]
+position = Vector2(866, 282)
+
+[node name="WickedBoar2" parent="." node_paths=PackedStringArray("vida", "damage", "hitbox") instance=ExtResource("3_e1mfo")]
+position = Vector2(600, 252)
+vida = NodePath("../WickedBoar/Vida")
+damage = NodePath("../WickedBoar/damage_box")
+hitbox = NodePath("../WickedBoar/hitbox")
+
+[node name="ColisionesMundo2" type="StaticBody2D" parent="."]
+position = Vector2(-27.7906, -145)
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ColisionesMundo"]
-polygon = PackedVector2Array(1173, 174, 1246, 226, 1266, -9, -80, 2, -81, 427, 1276, 427, 1258, 239, 1240, 221, 1239, 380, -20, 380, -20, 173)
+[node name="Top" type="CollisionShape2D" parent="ColisionesMundo2"]
+position = Vector2(579.843, 300)
+shape = SubResource("RectangleShape2D_cd5v0")
 
-[node name="PlayerSpawn" parent="." instance=ExtResource("2_axio2")]
-position = Vector2(27, 337)
+[node name="Bottom" type="CollisionShape2D" parent="ColisionesMundo2"]
+position = Vector2(616.363, 530)
+shape = SubResource("RectangleShape2D_ebeb1")
+
+[node name="Left" type="CollisionShape2D" parent="ColisionesMundo2"]
+position = Vector2(-15.2094, 413)
+shape = SubResource("RectangleShape2D_awvhp")
+
+[node name="Right" type="CollisionShape2D" parent="ColisionesMundo2"]
+position = Vector2(1257.79, 420)
+shape = SubResource("RectangleShape2D_swwvx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColisionesMundo2"]
+position = Vector2(1208.79, 319)
+rotation = 0.752932
+shape = SubResource("RectangleShape2D_wb7ur")
+
+[node name="Next" type="Area2D" parent="."]
+script = ExtResource("4_d0f7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Next"]
+position = Vector2(1126, 271.142)
+shape = SubResource("RectangleShape2D_iurds")
+debug_color = Color(0.891489, 0.252168, 0.52094, 0.42)

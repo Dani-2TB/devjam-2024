@@ -5,11 +5,11 @@ extends Node2D
 var vida_player:int
 
 func _ready() :
-	vida_player = vida_max
+	self.vida_player = vida_max
 	
 func restar_vida(atack):
-	vida_player -= atack
+	self.vida_player -= atack
 	
 func sumar_vida(curas):
-	vida_player += curas
+	self.vida_player += curas
 	

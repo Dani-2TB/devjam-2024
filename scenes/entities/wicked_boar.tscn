@@ -1,25 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6lwewcm3ro7t"]
+[gd_scene load_steps=20 format=3 uid="uid://c6lwewcm3ro7t"]
 
 [ext_resource type="Script" path="res://scripts/enemy/wicked_boar.gd" id="1_6l5uj"]
+[ext_resource type="Texture2D" uid="uid://6qp2rd0b0524" path="res://assets/Actores/Enemies/WickedBoardef.png" id="2_gvlsx"]
 [ext_resource type="Script" path="res://scripts/componentes/componente_vida.gd" id="2_nmd4i"]
 [ext_resource type="Script" path="res://scripts/componentes/componente_hitbox.gd" id="3_m2fhg"]
-[ext_resource type="Texture2D" uid="uid://hx5oa17kgcbl" path="res://assets/Actores/Enemies/WickedBoar def.png" id="5_cqf0v"]
 [ext_resource type="Script" path="res://scripts/componentes/componente_damage.gd" id="5_eb02q"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y422s"]
-atlas = ExtResource("5_cqf0v")
-region = Rect2(0, 0, 68, 60)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_oqwfx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y422s")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1dga"]
 size = Vector2(36.5, 60.75)
@@ -29,6 +14,94 @@ size = Vector2(36.5, 60.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0ejq"]
 size = Vector2(13.25, 40.25)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygpe6"]
+atlas = ExtResource("2_gvlsx")
+region = Rect2(70, 120, 70, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5akon"]
+atlas = ExtResource("2_gvlsx")
+region = Rect2(210, 120, 70, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypkiv"]
+atlas = ExtResource("2_gvlsx")
+region = Rect2(140, 120, 70, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlmjw"]
+atlas = ExtResource("2_gvlsx")
+region = Rect2(0, 60, 70, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pui4l"]
+atlas = ExtResource("2_gvlsx")
+region = Rect2(70, 60, 70, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaxgw"]
+atlas = ExtResource("2_gvlsx")
+region = Rect2(0, 180, 70, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y2y6"]
+atlas = ExtResource("2_gvlsx")
+region = Rect2(0, 0, 70, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf2ss"]
+atlas = ExtResource("2_gvlsx")
+region = Rect2(70, 0, 70, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao5lf"]
+atlas = ExtResource("2_gvlsx")
+region = Rect2(140, 0, 70, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md7pb"]
+atlas = ExtResource("2_gvlsx")
+region = Rect2(210, 0, 70, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bi3te"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygpe6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5akon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypkiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlmjw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pui4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oaxgw")
+}],
+"loop": true,
+"name": &"correr",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y2y6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xf2ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao5lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md7pb")
+}],
+"loop": false,
+"name": &"golpe",
+"speed": 5.0
+}]
+
 [node name="WickedBoar" type="CharacterBody2D" node_paths=PackedStringArray("vida", "damage", "hitbox") groups=["enemies"]]
 collision_layer = 2
 collision_mask = 4
@@ -36,10 +109,6 @@ script = ExtResource("1_6l5uj")
 vida = NodePath("Vida")
 damage = NodePath("damage_box")
 hitbox = NodePath("hitbox")
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5.16891e-08, -4)
-sprite_frames = SubResource("SpriteFrames_oqwfx")
 
 [node name="Vida" type="Node2D" parent="."]
 script = ExtResource("2_nmd4i")
@@ -60,7 +129,7 @@ shape = SubResource("CapsuleShape2D_o52dt")
 debug_color = Color(0.94902, 0, 0.564706, 1)
 
 [node name="can_attack" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.5
 
 [node name="damage_box" type="Area2D" parent="." groups=["damage"]]
 collision_layer = 2
@@ -76,3 +145,9 @@ debug_color = Color(0.820907, 0.402156, 4.40077e-07, 0.42)
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(-25, 2.08165e-12)
 collide_with_areas = true
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5.16891e-08, -4)
+sprite_frames = SubResource("SpriteFrames_bi3te")
+animation = &"correr"
+frame_progress = 0.0943132

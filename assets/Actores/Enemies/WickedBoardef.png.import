@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hx5oa17kgcbl"
-path="res://.godot/imported/WickedBoar def.png-d4b65bb72d67c4f3dac90864c1043757.ctex"
+uid="uid://6qp2rd0b0524"
+path="res://.godot/imported/WickedBoardef.png-4dba824f1f84cec429cb351381f44ac0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Actores/Enemies/WickedBoar def.png"
-dest_files=["res://.godot/imported/WickedBoar def.png-d4b65bb72d67c4f3dac90864c1043757.ctex"]
+source_file="res://assets/Actores/Enemies/WickedBoardef.png"
+dest_files=["res://.godot/imported/WickedBoardef.png-4dba824f1f84cec429cb351381f44ac0.ctex"]
 
 [params]
 

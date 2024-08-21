@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://caotp5gl8wjm7"]
+
+[ext_resource type="Texture2D" uid="uid://d1t4dey4uo3wh" path="res://assets/Niveles/Level_1/back5 def.png" id="1_5im01"]
+[ext_resource type="PackedScene" uid="uid://ceu6qw4pa8beu" path="res://scenes/components/player_spawn.tscn" id="2_lff1n"]
+[ext_resource type="PackedScene" uid="uid://c6lwewcm3ro7t" path="res://scenes/entities/wicked_boar.tscn" id="3_yv8qo"]
+[ext_resource type="PackedScene" uid="uid://bkf67age6nuo8" path="res://assets/Objetos/caja.tscn" id="4_57x5q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cd5v0"]
+size = Vector2(1346, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebeb1"]
+size = Vector2(1397.64, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awvhp"]
+size = Vector2(36.0406, 288)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swwvx"]
+size = Vector2(141.451, 121.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fg3v0"]
+size = Vector2(57.9014, 295)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wb7ur"]
+size = Vector2(115.003, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnwmr"]
+size = Vector2(403, 20)
+
+[node name="Screen_2" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(606, 152)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("1_5im01")
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("2_lff1n")]
+position = Vector2(27, 337)
+
+[node name="ColisionesMundo" type="StaticBody2D" parent="."]
+position = Vector2(-144, -73)
+collision_layer = 4
+collision_mask = 4
+
+[node name="Top" type="CollisionShape2D" parent="ColisionesMundo"]
+position = Vector2(470.895, 205.5)
+shape = SubResource("RectangleShape2D_cd5v0")
+
+[node name="Bottom" type="CollisionShape2D" parent="ColisionesMundo"]
+position = Vector2(504.645, 478)
+shape = SubResource("RectangleShape2D_ebeb1")
+
+[node name="Left" type="CollisionShape2D" parent="ColisionesMundo"]
+position = Vector2(45, 361)
+shape = SubResource("RectangleShape2D_awvhp")
+
+[node name="Right" type="CollisionShape2D" parent="ColisionesMundo"]
+position = Vector2(1130, 418)
+shape = SubResource("RectangleShape2D_swwvx")
+
+[node name="Right2" type="CollisionShape2D" parent="ColisionesMundo"]
+position = Vector2(1131.27, 232)
+shape = SubResource("RectangleShape2D_swwvx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ColisionesMundo"]
+position = Vector2(1497, 360.5)
+shape = SubResource("RectangleShape2D_fg3v0")
+
+[node name="Right3" type="CollisionShape2D" parent="ColisionesMundo"]
+position = Vector2(1266.1, 140)
+shape = SubResource("RectangleShape2D_swwvx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColisionesMundo"]
+position = Vector2(2100, 743)
+rotation = 0.752932
+shape = SubResource("RectangleShape2D_wb7ur")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ColisionesMundo"]
+position = Vector2(1442, 436)
+shape = SubResource("RectangleShape2D_nnwmr")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ColisionesMundo"]
+position = Vector2(1555, 192)
+shape = SubResource("RectangleShape2D_nnwmr")
+
+[node name="WickedBoar" parent="ColisionesMundo" instance=ExtResource("3_yv8qo")]
+position = Vector2(566, 379)
+
+[node name="WickedBoar" parent="ColisionesMundo/WickedBoar" instance=ExtResource("3_yv8qo")]
+position = Vector2(277, -62)
+
+[node name="Area2D" parent="ColisionesMundo/WickedBoar/WickedBoar" instance=ExtResource("4_57x5q")]
+position = Vector2(-447, -23)
+
+[node name="Area2D" parent="ColisionesMundo/WickedBoar/WickedBoar/Area2D" instance=ExtResource("4_57x5q")]
+position = Vector2(-6, 113)

@@ -1,72 +1,30 @@
-[gd_scene load_steps=11 format=3 uid="uid://ch6qdiplyraan"]
+[gd_scene load_steps=6 format=3 uid="uid://ch6qdiplyraan"]
 
 [ext_resource type="Texture2D" uid="uid://dtxncluj8pq28" path="res://assets/Niveles/Level_1/back1 def.png" id="1_3g6lk"]
 [ext_resource type="PackedScene" uid="uid://ceu6qw4pa8beu" path="res://scenes/components/player_spawn.tscn" id="2_fqdgk"]
-[ext_resource type="Script" path="res://scripts/level_manager/area_next.gd" id="3_e0661"]
-[ext_resource type="PackedScene" uid="uid://c6lwewcm3ro7t" path="res://scenes/entities/wicked_boar.tscn" id="4_nspjy"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cd5v0"]
-size = Vector2(1055.79, 49)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebeb1"]
-size = Vector2(1130.29, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_awvhp"]
-size = Vector2(36.0406, 288)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_swwvx"]
-size = Vector2(18.7906, 240)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wb7ur"]
-size = Vector2(115.003, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iurds"]
-size = Vector2(129.389, 8.86547)
+[ext_resource type="PackedScene" uid="uid://lrfle3t7jmjf" path="res://colisiones_mundo.tscn" id="2_oj5e7"]
+[ext_resource type="PackedScene" uid="uid://cptry4wxtecsk" path="res://next.tscn" id="4_36vhl"]
+[ext_resource type="PackedScene" uid="uid://bkf67age6nuo8" path="res://assets/Objetos/caja.tscn" id="5_rjbnf"]
 
 [node name="screen_1" type="Node2D"]
 
 [node name="Back1Def" type="Sprite2D" parent="."]
-position = Vector2(484.8, 101)
+position = Vector2(465, 118)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("1_3g6lk")
 
-[node name="ColisionesMundo" type="StaticBody2D" parent="."]
-position = Vector2(-27.7906, -145)
-collision_layer = 4
-collision_mask = 4
-
-[node name="Top" type="CollisionShape2D" parent="ColisionesMundo"]
-position = Vector2(470.895, 205.5)
-shape = SubResource("RectangleShape2D_cd5v0")
-
-[node name="Bottom" type="CollisionShape2D" parent="ColisionesMundo"]
-position = Vector2(504.645, 478)
-shape = SubResource("RectangleShape2D_ebeb1")
-
-[node name="Left" type="CollisionShape2D" parent="ColisionesMundo"]
-position = Vector2(-57.2297, 344)
-shape = SubResource("RectangleShape2D_awvhp")
-
-[node name="Right" type="CollisionShape2D" parent="ColisionesMundo"]
-position = Vector2(1079.79, 368)
-shape = SubResource("RectangleShape2D_swwvx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColisionesMundo"]
-position = Vector2(1043.79, 211)
-rotation = 0.752932
-shape = SubResource("RectangleShape2D_wb7ur")
+[node name="ColisionesMundo" parent="." instance=ExtResource("2_oj5e7")]
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("2_fqdgk")]
 position = Vector2(-7, 251)
 
-[node name="Next" type="Area2D" parent="."]
-script = ExtResource("3_e0661")
+[node name="Next" parent="." instance=ExtResource("4_36vhl")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Next"]
-position = Vector2(1008, 127)
-rotation = 0.945226
-shape = SubResource("RectangleShape2D_iurds")
-debug_color = Color(0.891489, 0.252168, 0.52094, 0.42)
+[node name="Area2D2" parent="." instance=ExtResource("5_rjbnf")]
+position = Vector2(344, 279)
 
-[node name="WickedBoar" parent="." instance=ExtResource("4_nspjy")]
-position = Vector2(726, 177)
+[node name="Area2D3" parent="." instance=ExtResource("5_rjbnf")]
+position = Vector2(429, 199)
+
+[node name="Area2D" parent="." instance=ExtResource("5_rjbnf")]
+position = Vector2(347, 126)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cptry4wxtecsk"]
+
+[ext_resource type="Script" path="res://scripts/level_manager/area_next.gd" id="1_5puxi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iurds"]
+size = Vector2(129.389, 8.86547)
+
+[node name="Next" type="Area2D"]
+script = ExtResource("1_5puxi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1008, 127)
+rotation = 0.945226
+shape = SubResource("RectangleShape2D_iurds")
+debug_color = Color(0.891489, 0.252168, 0.52094, 0.42)

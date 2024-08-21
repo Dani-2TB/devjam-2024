@@ -18,6 +18,7 @@ var input: Vector2 = Vector2.ZERO
 # variables para golpear
 var can_attack:bool = true # para saber si puede atacar o no
 var timer:Timer
+var state: String = "caminando"
 
 func _ready():
 	add_to_group("Jugador")
@@ -27,44 +28,60 @@ func _ready():
 func _physics_process(delta): 
 	input = Input.get_vector("left", "right", "up", "down")
 	if Input.is_action_just_pressed("left"):
-		get_node("Sprite").set_scale(Vector2(-1,1))
-		golpe_box.position.x = -44
+		get_node("Sprite").flip_h = true
+		$Sprite.play("caminar")
+		state = "caminando"
 		#$Sprite2D.set_scale(Vector2(20,20)) d	
 		#$Sprite2D.set_rotation_degrees(270)
 	elif Input.is_action_just_pressed("right") :
-		get_node("Sprite").set_scale(Vector2(1,1))
-		golpe_box.position.x = 44
+		get_node("Sprite").flip_h = false
+		$Sprite.play("caminar")
+		state = "caminando"
 		#$Sprite2D.set_rotation_degrees(-270)
 	if Input and Input.is_action_just_pressed("dash"):
 		velocity.x = input.x * h_dashspeed
 		velocity.y = input.y * v_dashspeed
+		state = "dashing"
 	else: 
 		velocity.x = input.x * h_movespeed
 		velocity.y = input.y * v_movespeed
 	if Input.is_action_just_pressed("saltar"):
+		state = "jumping"
 		get_node("Sprite").set_scale(Vector2(-1,1))
-
 #func aparicion()
 	move_and_slide()
 	gameover(vida.vida_player)
 	if Input.is_action_just_pressed("golpe") and can_attack:
+		state = "attacking"
 		golpe_box.damage_user = 1
+		get_node("Sprite").play("golpe")
 		golpe_box.get_child(0).disabled = false
-		move_shape(10,golpe_box)
+		move_shape(22, golpe_box)
 		can_attack=false
 		$canattack.start()
 
 	elif  Input.is_action_just_pressed("patada") and can_attack:
+		state = "attacking"
 		golpe_box.damage_user = 2
 		golpe_box.get_child(0).disabled = false
-		move_shape(40, golpe_box)
+		move_shape(30, golpe_box)
+		get_node("Sprite").play("patada")
 		can_attack=false
 		$canattack.start()
+	
+	if (velocity.x != 0 or velocity.y != 0) and state != "attacking":
+		$Sprite.play("caminar")
+	elif state != "attacking":
+		$Sprite.play("default")
+	
 func _on_timer_timeout():
 	golpe_box.get_child(0).disabled = true
 	can_attack= true
 func move_shape(amount, nodo):
 	var shape = nodo.get_child(0)
-	shape.position.x= amount
+	if get_node("Sprite").flip_h:
+		shape.position.x= -1 * amount 
+	else:
+		shape.position.x= amount
 func gameover(hp):
-	if hp<=0: queue_free()
+	if hp<=0: self.queue_free()

@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkf67age6nuo8"]
+
+[ext_resource type="Script" path="res://scripts/componentes/componente_hitbox.gd" id="1_d8415"]
+[ext_resource type="Texture2D" uid="uid://dnt75ssnwncex" path="res://assets/Objetos/caja.png" id="2_102ct"]
+[ext_resource type="Script" path="res://assets/Objetos/caja.gd" id="2_c5hqa"]
+[ext_resource type="Script" path="res://scripts/componentes/componente_vida.gd" id="2_dikft"]
+[ext_resource type="PackedScene" uid="uid://cf67nvuk3e0hp" path="res://pared.tscn" id="4_e3ue8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umpt5"]
+
+[node name="Area2D" type="Area2D" node_paths=PackedStringArray("vida")]
+collision_layer = 12
+script = ExtResource("1_d8415")
+vida = NodePath("vida")
+
+[node name="vida" type="Node2D" parent="."]
+script = ExtResource("2_dikft")
+vida_max = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." node_paths=PackedStringArray("vida")]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_umpt5")
+script = ExtResource("2_c5hqa")
+vida = NodePath("../vida")
+
+[node name="StaticBody2D" parent="CollisionShape2D" instance=ExtResource("4_e3ue8")]
+
+[node name="Caja" type="Sprite2D" parent="CollisionShape2D/StaticBody2D"]
+position = Vector2(0.15, 0.6)
+scale = Vector2(0.159677, 0.147581)
+texture = ExtResource("2_102ct")

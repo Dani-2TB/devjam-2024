@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var hitbox: Area2D
 @export var muerte: Node
 
-const SPEED = 10
+const SPEED = 20
 const JUMP_VELOCITY = -400.0
 var Jugador = null
 var attacking:bool =false
@@ -27,18 +27,16 @@ func _physics_process(delta):
 	# Add the gravity.
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction < 0 and velocity.x < 0:
-		get_node("Sprite2D").set_scale(Vector2(1,1))
+		$Sprite2D.flip_h = false
 		damage.get_child(0).position.x = -18
 		#Input.is_action_just_pressed("Left"):
-		
 	elif direction > 0 and velocity.x > 0: 
-		get_node("Sprite2D").set_scale(Vector2(-1,1))
+		$Sprite2D.flip_h = true
 		damage.get_child(0).position.x = 18 
-		
 		#El velocity.x revisa si el enemigo se esta mpoviendo hacia la derecha o izquierdaa para voltearse
 		
 	if velocity.x !=0 and velocity.y != 0:
-		get_node("Sprite2D")
+		$Sprite2D.play("default")
 	if can_attack_player() and not attacking:
 		velocity = Vector2.ZERO
 		attacking=true
@@ -46,12 +44,17 @@ func _physics_process(delta):
 	else:
 		seguir()
 	if attacking:
-		if timer_attack.time_left <0.2 and timer_attack.time_left >0.15 :
+		if timer_attack.time_left <0.3 and timer_attack.time_left >0.2 :
+			get_node("Sprite2D").play("golpe")
 			damage.get_child(0).disabled = false
 	move_and_slide()
-	
+	if not attacking:
+		if velocity.x != 0 or velocity.y != 0:
+			$Sprite2D.play("correr")
+		else: 
+			$Sprite2D.play("idle")
 func gameover(hp):
-	if hp<=0: queue_free()
+	if hp<=0: self.queue_free()
 
 func _on_timer_timeout():
 	attacking= false

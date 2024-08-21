@@ -18,6 +18,8 @@ func _process(delta):
 	if reloading:
 		change_scene()
 		reloading = false
+	if Input.is_action_just_pressed("reset"):
+		change_scene()
 
 func change_scene():
 	level.queue_free()

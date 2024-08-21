@@ -96,6 +96,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_md7pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao5lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xf2ss")
 }],
 "loop": false,
 "name": &"golpe",
@@ -149,5 +155,4 @@ collide_with_areas = true
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(5.16891e-08, -4)
 sprite_frames = SubResource("SpriteFrames_bi3te")
-animation = &"correr"
-frame_progress = 0.0898983
+animation = &"golpe"

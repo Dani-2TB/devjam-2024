@@ -4,3 +4,5 @@ var damage_user
 
 func _ready():
 	damage_user= damage_max
+	
+

@@ -17,10 +17,11 @@ var v_dashspeed:int = 1500
 var input: Vector2 = Vector2.ZERO
 # variables para golpear
 var can_attack:bool = true # para saber si puede atacar o no
+var timer:Timer
 
 func _ready():
 	add_to_group("Jugador")
-	var timer = $canattack
+	timer = $canattack
 	timer.timeout.connect(_on_timer_timeout)
 
 func _physics_process(delta): 
@@ -45,21 +46,25 @@ func _physics_process(delta):
 
 #func aparicion()
 	move_and_slide()
+	gameover(vida.vida_player)
 	if Input.is_action_just_pressed("golpe") and can_attack:
+		golpe_box.damage_user = 1
 		golpe_box.get_child(0).disabled = false
 		move_shape(10,golpe_box)
 		can_attack=false
 		$canattack.start()
 
 	elif  Input.is_action_just_pressed("patada") and can_attack:
+		golpe_box.damage_user = 2
 		golpe_box.get_child(0).disabled = false
 		move_shape(40, golpe_box)
 		can_attack=false
 		$canattack.start()
-
 func _on_timer_timeout():
 	golpe_box.get_child(0).disabled = true
 	can_attack= true
 func move_shape(amount, nodo):
 	var shape = nodo.get_child(0)
 	shape.position.x= amount
+func gameover(hp):
+	if hp<=0: queue_free()

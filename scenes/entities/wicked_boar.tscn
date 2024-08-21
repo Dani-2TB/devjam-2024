@@ -27,7 +27,7 @@ size = Vector2(36.5, 60.75)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o52dt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0ejq"]
-size = Vector2(10.5, 40.25)
+size = Vector2(13.25, 40.25)
 
 [node name="WickedBoar" type="CharacterBody2D" node_paths=PackedStringArray("vida", "damage", "hitbox") groups=["enemies"]]
 collision_layer = 2
@@ -59,15 +59,20 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_o52dt")
 debug_color = Color(0.94902, 0, 0.564706, 1)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="can_attack" type="Timer" parent="."]
+wait_time = 0.3
 
 [node name="damage_box" type="Area2D" parent="." groups=["damage"]]
 collision_layer = 2
 script = ExtResource("5_eb02q")
+damage_max = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_box"]
-position = Vector2(-17, 0)
+position = Vector2(-18, 2.08165e-12)
 shape = SubResource("RectangleShape2D_x0ejq")
+disabled = true
 debug_color = Color(0.820907, 0.402156, 4.40077e-07, 0.42)
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(-25, 2.08165e-12)
+collide_with_areas = true

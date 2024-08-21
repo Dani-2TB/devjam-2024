@@ -12,7 +12,7 @@ func _on_area_entered(area):
 		return
 	
 	vida.restar_vida(damage)
-
+	print(vida.vida_player)
 
 	if area.is_in_group("curas"):
 		pass

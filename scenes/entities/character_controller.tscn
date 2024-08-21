@@ -43,7 +43,6 @@ hitbox = NodePath("hitbox")
 
 [node name="vida" type="Node2D" parent="."]
 script = ExtResource("2_6vrna")
-vida_max = 20
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7ji41")
@@ -55,7 +54,7 @@ drag_vertical_enabled = true
 [node name="damage_box" type="Area2D" parent="." groups=["damage"]]
 collision_mask = 2
 script = ExtResource("4_3gqyr")
-damage_max = 10
+damage_max = 1
 
 [node name="shape" type="CollisionShape2D" parent="damage_box"]
 position = Vector2(2.08165e-12, 2.08165e-12)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pjpkp3bj2a7j"
-path="res://.godot/imported/idle.png-a05d91b818c6282d603b3b0ac862ccf5.ctex"
+uid="uid://bbkdnng6eywg"
+path="res://.godot/imported/Froakiee Srpites.png-30661da5b30b3a4d115e267a15614a6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Actores/Player/idle.png"
-dest_files=["res://.godot/imported/idle.png-a05d91b818c6282d603b3b0ac862ccf5.ctex"]
+source_file="res://assets/Actores/Player/Froakiee Srpites.png"
+dest_files=["res://.godot/imported/Froakiee Srpites.png-30661da5b30b3a4d115e267a15614a6c.ctex"]
 
 [params]
 

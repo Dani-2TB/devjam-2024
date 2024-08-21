@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://ch6qdiplyraan"]
+[gd_scene load_steps=11 format=3 uid="uid://ch6qdiplyraan"]
 
 [ext_resource type="Texture2D" uid="uid://dtxncluj8pq28" path="res://assets/Niveles/Level_1/back1 def.png" id="1_3g6lk"]
 [ext_resource type="PackedScene" uid="uid://ceu6qw4pa8beu" path="res://scenes/components/player_spawn.tscn" id="2_fqdgk"]
+[ext_resource type="PackedScene" uid="uid://cpt08reuv0442" path="res://scenes/objects/caja.tscn" id="2_sdtot"]
 [ext_resource type="Script" path="res://scripts/level_manager/area_next.gd" id="3_e0661"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd5v0"]
@@ -54,6 +55,9 @@ shape = SubResource("RectangleShape2D_swwvx")
 position = Vector2(1043.79, 211)
 rotation = 0.752932
 shape = SubResource("RectangleShape2D_wb7ur")
+
+[node name="Caja" parent="ColisionesMundo" instance=ExtResource("2_sdtot")]
+position = Vector2(593.791, 393)
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("2_fqdgk")]
 position = Vector2(-7, 251)

@@ -1,67 +1,60 @@
-[gd_scene load_steps=10 format=3 uid="uid://jr18p7t35oyt"]
+[gd_scene load_steps=9 format=3 uid="uid://ut8vki1cegmk"]
 
-[ext_resource type="Texture2D" uid="uid://cpf0pcu1f5gcc" path="res://assets/Niveles/Level_1/back2.png" id="1_rq03l"]
-[ext_resource type="PackedScene" uid="uid://ceu6qw4pa8beu" path="res://scenes/components/player_spawn.tscn" id="2_axio2"]
-[ext_resource type="Script" path="res://scripts/level_manager/area_next.gd" id="3_i6qnn"]
+[ext_resource type="Texture2D" uid="uid://dog1fi6cljky5" path="res://assets/Niveles/Level_1/Back3 def.png" id="1_oy7k4"]
+[ext_resource type="PackedScene" uid="uid://ceu6qw4pa8beu" path="res://scenes/components/player_spawn.tscn" id="2_q8qst"]
+[ext_resource type="Script" path="res://scripts/level_manager/area_next.gd" id="3_s4wqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ja0uo"]
-size = Vector2(1202.25, 20)
+size = Vector2(1314.13, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3jhu"]
-size = Vector2(1252.5, 20)
+size = Vector2(1356.25, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7cpm4"]
 size = Vector2(17, 215)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s30kg"]
-size = Vector2(20, 173)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftlie"]
-size = Vector2(27, 83)
+size = Vector2(29, 228.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns42w"]
-size = Vector2(157.622, 29.5912)
+size = Vector2(208.662, 29.5912)
 
 [node name="Screen_2" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(606, 152)
 scale = Vector2(1.8, 1.8)
-texture = ExtResource("1_rq03l")
+texture = ExtResource("1_oy7k4")
 
 [node name="ColisionesMundo" type="StaticBody2D" parent="."]
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColisionesMundo"]
-position = Vector2(579.75, 160)
+position = Vector2(585.938, 158)
 shape = SubResource("RectangleShape2D_ja0uo")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ColisionesMundo"]
-position = Vector2(606.75, 396)
+position = Vector2(595.125, 411.5)
 shape = SubResource("RectangleShape2D_x3jhu")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="ColisionesMundo"]
-position = Vector2(-35, 270)
+position = Vector2(-79, 274)
 shape = SubResource("RectangleShape2D_7cpm4")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="ColisionesMundo"]
-position = Vector2(1254, 313)
+position = Vector2(1273.5, 273.25)
 shape = SubResource("RectangleShape2D_s30kg")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="ColisionesMundo"]
-position = Vector2(1216, 186)
-rotation = -0.785398
-shape = SubResource("RectangleShape2D_ftlie")
-
-[node name="PlayerSpawn" parent="." instance=ExtResource("2_axio2")]
+[node name="PlayerSpawn" parent="." instance=ExtResource("2_q8qst")]
 position = Vector2(47, 263)
 
 [node name="Next" type="Area2D" parent="."]
-script = ExtResource("3_i6qnn")
+script = ExtResource("3_s4wqw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Next"]
-position = Vector2(1201.41, 294.57)
+position = Vector2(1225.67, 288.511)
 rotation = 1.54462
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ns42w")
 debug_color = Color(0.891489, 0.252168, 0.52094, 0.42)

@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://jr18p7t35oyt"]
+[gd_scene load_steps=10 format=3 uid="uid://6bju3y0nyd33"]
 
-[ext_resource type="Texture2D" uid="uid://cpf0pcu1f5gcc" path="res://assets/Niveles/Level_1/back2.png" id="1_rq03l"]
-[ext_resource type="PackedScene" uid="uid://ceu6qw4pa8beu" path="res://scenes/components/player_spawn.tscn" id="2_axio2"]
-[ext_resource type="Script" path="res://scripts/level_manager/area_next.gd" id="3_i6qnn"]
+[ext_resource type="Texture2D" uid="uid://cbrbq5q81ymbq" path="res://assets/Niveles/Level_1/back4.png" id="1_2wem4"]
+[ext_resource type="PackedScene" uid="uid://ceu6qw4pa8beu" path="res://scenes/components/player_spawn.tscn" id="2_ws1g1"]
+[ext_resource type="Script" path="res://scripts/level_manager/area_next.gd" id="3_kdsie"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ja0uo"]
 size = Vector2(1202.25, 20)
@@ -27,7 +27,7 @@ size = Vector2(157.622, 29.5912)
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(606, 152)
 scale = Vector2(1.8, 1.8)
-texture = ExtResource("1_rq03l")
+texture = ExtResource("1_2wem4")
 
 [node name="ColisionesMundo" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -54,11 +54,11 @@ position = Vector2(1216, 186)
 rotation = -0.785398
 shape = SubResource("RectangleShape2D_ftlie")
 
-[node name="PlayerSpawn" parent="." instance=ExtResource("2_axio2")]
+[node name="PlayerSpawn" parent="." instance=ExtResource("2_ws1g1")]
 position = Vector2(47, 263)
 
 [node name="Next" type="Area2D" parent="."]
-script = ExtResource("3_i6qnn")
+script = ExtResource("3_kdsie")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Next"]
 position = Vector2(1201.41, 294.57)

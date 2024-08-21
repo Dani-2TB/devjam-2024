@@ -16,10 +16,12 @@ var h_dashspeed:int = 2000
 var v_dashspeed:int = 1500
 var input: Vector2 = Vector2.ZERO
 # variables para golpear
+@onready var attack = get_node("Sprite")
 var can_attack:bool = true # para saber si puede atacar o no
 
 func _ready():
 	add_to_group("Jugador")
+	
 	var timer = $canattack
 	timer.timeout.connect(_on_timer_timeout)
 
@@ -41,19 +43,22 @@ func _physics_process(delta):
 		velocity.x = input.x * h_movespeed
 		velocity.y = input.y * v_movespeed
 	if Input.is_action_just_pressed("saltar"):
-		get_node("Sprite").set_scale(Vector2(-1,1))
+		get_node("Sprite").play("saltar")
 
 #func aparicion()
 	move_and_slide()
 	if Input.is_action_just_pressed("golpe") and can_attack:
+		attack.play("golpe")
 		golpe_box.get_child(0).disabled = false
 		move_shape(-10,golpe_box)
 		can_attack=false
 		$canattack.start()
+		
 
 	elif  Input.is_action_just_pressed("patada") and can_attack:
+		attack.play("patada")
 		golpe_box.get_child(0).disabled = false
-		move_shape(10, golpe_box)
+		move_shape(1, golpe_box)
 		can_attack=false
 		$canattack.start()
 

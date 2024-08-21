@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddfnbpnxpkkgo"
-path="res://.godot/imported/FroakFrodinand.png-31157cc5a5ef99b72837b9f3f14a0c2c.ctex"
+uid="uid://bpbjr1sisnebi"
+path="res://.godot/imported/KF_Metalbat_-_def.png-39e4103e2022c87634fad9510631ea62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Character/Player/FroakFrodinand.png"
-dest_files=["res://.godot/imported/FroakFrodinand.png-31157cc5a5ef99b72837b9f3f14a0c2c.ctex"]
+source_file="res://assets/Actores/Enemies/KF_Metalbat_-_def.png"
+dest_files=["res://.godot/imported/KF_Metalbat_-_def.png-39e4103e2022c87634fad9510631ea62.ctex"]
 
 [params]
 

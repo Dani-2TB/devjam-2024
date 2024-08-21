@@ -77,7 +77,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"correr",
-"speed": 8.0
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,

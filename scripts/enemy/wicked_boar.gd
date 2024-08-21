@@ -28,16 +28,18 @@ func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction < 0 and velocity.x < 0:
 		$Sprite2D.flip_h = false
+		$Sprite2D.play("correr")
 		damage.get_child(0).position.x = -18
 		#Input.is_action_just_pressed("Left"):
 	elif direction > 0 and velocity.x > 0: 
 		$Sprite2D.flip_h = true
+		$Sprite2D.play("correr")
 		damage.get_child(0).position.x = 18 
 		#El velocity.x revisa si el enemigo se esta mpoviendo hacia la derecha o izquierdaa para voltearse
 		
-	if velocity.x !=0 and velocity.y != 0:
-		$Sprite2D.play("default")
+
 	if can_attack_player() and not attacking:
+		$Sprite2D.play("correr")
 		velocity = Vector2.ZERO
 		attacking=true
 		timer_attack.start()

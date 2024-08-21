@@ -14,11 +14,8 @@ size = Vector2(36.5, 60.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0ejq"]
 size = Vector2(38, 58)
 
-[node name="WickedBoar" type="CharacterBody2D" node_paths=PackedStringArray("vida", "damage", "hitbox") groups=["enemies"]]
+[node name="WickedBoar" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_6l5uj")
-vida = NodePath("Vida")
-damage = NodePath("damage_box")
-hitbox = NodePath("colision")
 
 [node name="Vida" type="Node2D" parent="."]
 script = ExtResource("2_nmd4i")

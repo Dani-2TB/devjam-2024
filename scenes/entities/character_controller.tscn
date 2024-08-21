@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://l6arc5v20nsc"]
+[gd_scene load_steps=11 format=3 uid="uid://l6arc5v20nsc"]
 
+[ext_resource type="Script" path="res://scripts/player/character_controller.gd" id="1_dts6p"]
 [ext_resource type="Script" path="res://scripts/componentes/componente_vida.gd" id="2_6vrna"]
 [ext_resource type="Texture2D" uid="uid://pjpkp3bj2a7j" path="res://assets/Actores/Player/idle.png" id="3_4ygip"]
 [ext_resource type="Script" path="res://scripts/componentes/componente_damage.gd" id="4_3gqyr"]
@@ -11,17 +12,17 @@ region = Rect2(0, 0, 66, 88)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_et45k"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"golpe",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_phneb")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation",
 "speed": 5.0
 }]
 
@@ -34,11 +35,15 @@ size = Vector2(73, 29)
 radius = 8.0
 height = 52.0
 
-[node name="CharacterController" type="CharacterBody2D" groups=["Jugador"]]
+[node name="CharacterController" type="CharacterBody2D" node_paths=PackedStringArray("vida", "golpe_box", "hitbox") groups=["Jugador"]]
 y_sort_enabled = true
 collision_mask = 4
 slide_on_ceiling = false
 floor_stop_on_slope = false
+script = ExtResource("1_dts6p")
+vida = NodePath("vida")
+golpe_box = NodePath("damage_box")
+hitbox = NodePath("hitbox")
 
 [node name="vida" type="Node2D" parent="."]
 script = ExtResource("2_6vrna")
@@ -46,7 +51,7 @@ vida_max = 20
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_et45k")
-animation = &"idle"
+animation = &"golpe"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 drag_horizontal_enabled = true

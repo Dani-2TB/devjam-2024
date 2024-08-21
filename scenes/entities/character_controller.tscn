@@ -377,6 +377,7 @@ script = ExtResource("1_dts6p")
 vida = NodePath("vida")
 golpe_box = NodePath("damage_box")
 hitbox = NodePath("hitbox")
+is_jumping = true
 
 [node name="vida" type="Node2D" parent="."]
 script = ExtResource("2_6vrna")

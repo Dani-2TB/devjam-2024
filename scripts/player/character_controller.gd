@@ -9,7 +9,8 @@ class_name CharacterController
 
 #@onready var escena_jugador = load("res://Scenes/froak_frodinand.tscn")
 #variables de movimiento
-@export var h_movespeed: int = 200 #velocidad de movimiento horizontal
+@export var is_jumping: bool = false #boolean para verificar si esta saltando
+@export var h_movespeed: int = 300 #velocidad de movimiento horizontal
 @export var v_movespeed: int = 150 #velocidad de movimiento vertical, mas baja que la horizontal para dar efecto 3D
 var pos_jugador = null
 var h_dashspeed:int = 2000
@@ -44,7 +45,9 @@ func _physics_process(delta):
 		velocity.y = input.y * v_movespeed
 	if Input.is_action_just_pressed("saltar"):
 		get_node("Sprite").play("saltar")
-
+		is_jumping = true
+		#timer_caja.start()
+		
 #func aparicion()
 	move_and_slide()
 	if Input.is_action_just_pressed("golpe") and can_attack:

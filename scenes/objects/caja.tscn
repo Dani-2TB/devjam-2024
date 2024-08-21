@@ -1,18 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpt08reuv0442"]
+[gd_scene load_steps=6 format=3 uid="uid://cpt08reuv0442"]
 
 [ext_resource type="Script" path="res://scripts/objects/caja.gd" id="1_55xhk"]
 [ext_resource type="Texture2D" uid="uid://dnt75ssnwncex" path="res://assets/Objetos/caja.png" id="1_hd3aw"]
+[ext_resource type="Script" path="res://scripts/componentes/componente_vida.gd" id="2_v15it"]
+[ext_resource type="Script" path="res://scripts/componentes/componente_hitbox.gd" id="4_5mcgf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pf71c"]
 size = Vector2(122, 122)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_88wsg"]
-radius = 152.191
 
 [node name="Caja" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_55xhk")
+
+[node name="Vida" type="Node2D" parent="."]
+script = ExtResource("2_v15it")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_hd3aw")
@@ -22,9 +24,12 @@ position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pf71c")
 
 [node name="TriggerSalto" type="Area2D" parent="."]
+script = ExtResource("4_5mcgf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerSalto"]
-shape = SubResource("CircleShape2D_88wsg")
+[node name="Colision2" type="CollisionShape2D" parent="TriggerSalto"]
+position = Vector2(1, 1)
+scale = Vector2(1.09, 1.09)
+shape = SubResource("RectangleShape2D_pf71c")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.4

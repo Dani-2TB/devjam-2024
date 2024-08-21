@@ -20,6 +20,8 @@ var can_attack:bool = true # para saber si puede atacar o no
 
 func _ready():
 	add_to_group("Jugador")
+	var timer = $canattack
+	timer.timeout.connect(_on_timer_timeout)
 
 func _physics_process(delta): 
 	input = Input.get_vector("left", "right", "up", "down")

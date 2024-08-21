@@ -84,4 +84,4 @@ func move_shape(amount, nodo):
 	else:
 		shape.position.x= amount
 func gameover(hp):
-	if hp<=0: self.queue_free()
+	if hp<=0: self.visible = false

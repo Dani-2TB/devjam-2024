@@ -19,12 +19,14 @@ func _process(delta):
 		change_scene()
 		reloading = false
 	if Input.is_action_just_pressed("reset"):
+		get_child(0).vida.vida_player = 10
 		change_scene()
 
 func change_scene():
 	level.queue_free()
 	level = load_level()
 	add_child(level)
+	get_child(0).visible = true
 
 func load_level():
 	var level_scene: PackedScene

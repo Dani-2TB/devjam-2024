@@ -1,9 +1,9 @@
 extends Node
-class_name LevelManager
+
 
 @export var current_level: int = 1
 @export var max_levels: int = 1
-@export var player: CharacterController
+@export var player: CharacterBody2D
 
 var level: Node
 var reloading: bool = false

@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name CharacterController
+class_name CharacterControler
 
 # nodos que utilizare 
 @export var vida : Node2D

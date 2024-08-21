@@ -2,11 +2,20 @@ extends Area2D
 @export var vida : Node2D
 
 func _ready():
-	self.body_entered.connect(_on_body_entered)
+	self.area_entered.connect(_on_area_entered)
 
-func _on_body_entered(body):
-	var damage = body.get_node("damage_box").damage_user
+func _on_area_entered(area):
+	if area.is_in_group("hitbox"):
+		return
+	var damage:int = area.damage_user
 	if damage == null:
 		return
-	vida.restar_vida(damage.damage_user)
+	
+	vida.restar_vida(damage)
+
+
+	if area.is_in_group("curas"):
+		pass
+
+
 

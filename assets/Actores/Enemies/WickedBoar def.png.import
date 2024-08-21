@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fr2npgq4csgi"
-path="res://.godot/imported/KF Metalbat.png-9b93c02a9d4da40f40f4b5283a225dfe.ctex"
+uid="uid://hx5oa17kgcbl"
+path="res://.godot/imported/WickedBoar def.png-d4b65bb72d67c4f3dac90864c1043757.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Actores/Enemies/KF Metalbat.png"
-dest_files=["res://.godot/imported/KF Metalbat.png-9b93c02a9d4da40f40f4b5283a225dfe.ctex"]
+source_file="res://assets/Actores/Enemies/WickedBoar def.png"
+dest_files=["res://.godot/imported/WickedBoar def.png-d4b65bb72d67c4f3dac90864c1043757.ctex"]
 
 [params]
 

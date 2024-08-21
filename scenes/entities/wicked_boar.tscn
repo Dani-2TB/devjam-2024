@@ -1,10 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6lwewcm3ro7t"]
+[gd_scene load_steps=11 format=3 uid="uid://c6lwewcm3ro7t"]
 
 [ext_resource type="Script" path="res://scripts/enemy/wicked_boar.gd" id="1_6l5uj"]
 [ext_resource type="Script" path="res://scripts/componentes/componente_vida.gd" id="2_nmd4i"]
 [ext_resource type="Script" path="res://scripts/componentes/componente_hitbox.gd" id="3_m2fhg"]
-[ext_resource type="Texture2D" uid="uid://bbw0whlj3e0l6" path="res://icon.svg" id="4_6jyh8"]
+[ext_resource type="Texture2D" uid="uid://hx5oa17kgcbl" path="res://assets/Actores/Enemies/WickedBoar def.png" id="5_cqf0v"]
 [ext_resource type="Script" path="res://scripts/componentes/componente_damage.gd" id="5_eb02q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y422s"]
+atlas = ExtResource("5_cqf0v")
+region = Rect2(0, 0, 68, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oqwfx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y422s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1dga"]
 size = Vector2(36.5, 60.75)
@@ -12,49 +27,46 @@ size = Vector2(36.5, 60.75)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o52dt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0ejq"]
-size = Vector2(38, 58)
+size = Vector2(10.5, 40.25)
 
-[node name="WickedBoar" type="CharacterBody2D" groups=["enemies"]]
+[node name="WickedBoar" type="CharacterBody2D" node_paths=PackedStringArray("vida", "damage", "hitbox") groups=["enemies"]]
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_6l5uj")
+vida = NodePath("Vida")
+damage = NodePath("damage_box")
+hitbox = NodePath("hitbox")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5.16891e-08, -4)
+sprite_frames = SubResource("SpriteFrames_oqwfx")
 
 [node name="Vida" type="Node2D" parent="."]
 script = ExtResource("2_nmd4i")
 
-[node name="colision" type="Area2D" parent="." node_paths=PackedStringArray("vida")]
+[node name="hitbox" type="Area2D" parent="." node_paths=PackedStringArray("vida") groups=["hitbox"]]
+collision_layer = 2
 script = ExtResource("3_m2fhg")
 vida = NodePath("../Vida")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="colision"]
+[node name="shape" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0.25, -1.375)
 shape = SubResource("RectangleShape2D_y1dga")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="mundo" type="CollisionShape2D" parent="."]
 position = Vector2(0, 19)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_o52dt")
 debug_color = Color(0.94902, 0, 0.564706, 1)
 
-[node name="Icon" type="Sprite2D" parent="CollisionShape2D"]
-visible = false
-position = Vector2(-30, 1.00011)
-rotation = -1.5708
-scale = Vector2(0.859375, 0.171875)
-texture = ExtResource("4_6jyh8")
-
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-position = Vector2(-136, 2.00049)
-rotation = -1.5708
-hframes = 7
-vframes = 2
-
 [node name="Timer" type="Timer" parent="."]
 
-[node name="damage_box" type="Area2D" parent="."]
+[node name="damage_box" type="Area2D" parent="." groups=["damage"]]
+collision_layer = 2
 script = ExtResource("5_eb02q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_box"]
-visible = false
-position = Vector2(0, -3)
+position = Vector2(-17, 0)
 shape = SubResource("RectangleShape2D_x0ejq")
 debug_color = Color(0.820907, 0.402156, 4.40077e-07, 0.42)
 

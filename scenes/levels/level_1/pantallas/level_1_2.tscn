@@ -11,6 +11,8 @@ scale = Vector2(1.8, 1.8)
 texture = ExtResource("1_rq03l")
 
 [node name="ColisionesMundo" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ColisionesMundo"]
 polygon = PackedVector2Array(1173, 174, 1246, 226, 1266, -9, -80, 2, -81, 427, 1276, 427, 1258, 239, 1240, 221, 1239, 380, -20, 380, -20, 173)

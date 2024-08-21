@@ -2,40 +2,36 @@
 
 [ext_resource type="Script" path="res://scripts/player/character_controller.gd" id="1_dts6p"]
 [ext_resource type="Script" path="res://scripts/componentes/componente_vida.gd" id="2_6vrna"]
-[ext_resource type="Texture2D" uid="uid://pjpkp3bj2a7j" path="res://assets/Actores/Player/idle.png" id="3_4ygip"]
+[ext_resource type="Texture2D" uid="uid://lb6j0xiwpl36" path="res://assets/Actores/Player/Froakiee Sprites.png" id="3_h1t8b"]
 [ext_resource type="Script" path="res://scripts/componentes/componente_damage.gd" id="4_3gqyr"]
 [ext_resource type="Script" path="res://scripts/componentes/componente_hitbox.gd" id="4_kp4yw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_phneb"]
-atlas = ExtResource("3_4ygip")
-region = Rect2(0, 0, 66, 88)
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7u7o"]
+atlas = ExtResource("3_h1t8b")
+region = Rect2(0, 0, 160, 128)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_et45k"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ji41"]
 animations = [{
-"frames": [],
-"loop": true,
-"name": &"golpe",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_phneb")
+"texture": SubResource("AtlasTexture_c7u7o")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"default",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktbrk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dad7d"]
-size = Vector2(73, 29)
+size = Vector2(56.9999, 24)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0pecq"]
 radius = 8.0
-height = 52.0
+height = 40.0
 
 [node name="CharacterController" type="CharacterBody2D" node_paths=PackedStringArray("vida", "golpe_box", "hitbox") groups=["Jugador"]]
+z_index = 1
 y_sort_enabled = true
 collision_mask = 4
 slide_on_ceiling = false
@@ -50,38 +46,38 @@ script = ExtResource("2_6vrna")
 vida_max = 20
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_et45k")
-animation = &"golpe"
+sprite_frames = SubResource("SpriteFrames_7ji41")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="damage_box" type="Area2D" parent="."]
+[node name="damage_box" type="Area2D" parent="." groups=["damage"]]
 collision_mask = 2
 script = ExtResource("4_3gqyr")
 damage_max = 10
 
 [node name="shape" type="CollisionShape2D" parent="damage_box"]
+position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("RectangleShape2D_ktbrk")
 disabled = true
 
 [node name="canattack" type="Timer" parent="."]
 wait_time = 0.4
 
-[node name="hitbox" type="Area2D" parent="." node_paths=PackedStringArray("vida")]
+[node name="hitbox" type="Area2D" parent="." node_paths=PackedStringArray("vida") groups=["hitbox"]]
 collision_mask = 2
 script = ExtResource("4_kp4yw")
 vida = NodePath("../vida")
 
 [node name="shape" type="CollisionShape2D" parent="hitbox"]
 visibility_layer = 2
-position = Vector2(-2.49999, -1)
+position = Vector2(1.0001, -4.50002)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_dad7d")
 debug_color = Color(0.94902, 0, 0.564706, 0.235294)
 
 [node name="map_collision" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 28)
+position = Vector2(4, 23)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0pecq")

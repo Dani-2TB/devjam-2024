@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ch6qdiplyraan"]
+[gd_scene load_steps=11 format=3 uid="uid://ch6qdiplyraan"]
 
 [ext_resource type="Texture2D" uid="uid://dtxncluj8pq28" path="res://assets/Niveles/Level_1/back1 def.png" id="1_3g6lk"]
 [ext_resource type="PackedScene" uid="uid://ceu6qw4pa8beu" path="res://scenes/components/player_spawn.tscn" id="2_fqdgk"]
 [ext_resource type="Script" path="res://scripts/level_manager/area_next.gd" id="3_e0661"]
+[ext_resource type="PackedScene" uid="uid://c6lwewcm3ro7t" path="res://scenes/entities/wicked_boar.tscn" id="4_nspjy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd5v0"]
 size = Vector2(1055.79, 49)
@@ -66,3 +67,6 @@ position = Vector2(1008, 127)
 rotation = 0.945226
 shape = SubResource("RectangleShape2D_iurds")
 debug_color = Color(0.891489, 0.252168, 0.52094, 0.42)
+
+[node name="WickedBoar" parent="." instance=ExtResource("4_nspjy")]
+position = Vector2(726, 177)

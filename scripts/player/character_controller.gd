@@ -47,13 +47,13 @@ func _physics_process(delta):
 	move_and_slide()
 	if Input.is_action_just_pressed("golpe") and can_attack:
 		golpe_box.get_child(0).disabled = false
-		move_shape(-10,golpe_box)
+		move_shape(10,golpe_box)
 		can_attack=false
 		$canattack.start()
 
 	elif  Input.is_action_just_pressed("patada") and can_attack:
 		golpe_box.get_child(0).disabled = false
-		move_shape(10, golpe_box)
+		move_shape(40, golpe_box)
 		can_attack=false
 		$canattack.start()
 
@@ -62,4 +62,4 @@ func _on_timer_timeout():
 	can_attack= true
 func move_shape(amount, nodo):
 	var shape = nodo.get_child(0)
-	shape.position.y= amount
+	shape.position.x= amount

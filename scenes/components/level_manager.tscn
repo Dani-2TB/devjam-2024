@@ -9,8 +9,6 @@ script = ExtResource("1_vlyxb")
 player = NodePath("CharacterController")
 
 [node name="CharacterController" parent="." node_paths=PackedStringArray("combo_manager") instance=ExtResource("2_qrqsg")]
-z_index = 1
-position = Vector2(69, 182)
 combo_manager = NodePath("ComboManager")
 
 [node name="ComboManager" parent="CharacterController" instance=ExtResource("3_3n5aa")]

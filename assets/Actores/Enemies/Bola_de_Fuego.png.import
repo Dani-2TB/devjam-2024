@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddfnbpnxpkkgo"
-path="res://.godot/imported/FroakFrodinand.png-31157cc5a5ef99b72837b9f3f14a0c2c.ctex"
+uid="uid://c5f7chkpr8hpy"
+path="res://.godot/imported/Bola_de_Fuego.png-d76ef9b652971f5b6d59c9c6a2d728aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Character/Player/FroakFrodinand.png"
-dest_files=["res://.godot/imported/FroakFrodinand.png-31157cc5a5ef99b72837b9f3f14a0c2c.ctex"]
+source_file="res://assets/Actores/Enemies/Bola_de_Fuego.png"
+dest_files=["res://.godot/imported/Bola_de_Fuego.png-d76ef9b652971f5b6d59c9c6a2d728aa.ctex"]
 
 [params]
 

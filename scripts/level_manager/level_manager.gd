@@ -11,6 +11,7 @@ var reloading: bool = false
 func _ready():
 	# Init Level
 	level = load_level()
+	print(player.position.x)
 	add_child(level)
 
 func _process(delta):
@@ -36,7 +37,5 @@ func load_level():
 func set_player_position(x:int, y:int):
 	player.position.x = x
 	player.position.y = y
-	
-	
 	
 	

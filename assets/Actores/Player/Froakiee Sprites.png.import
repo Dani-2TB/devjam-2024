@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://576nc6iw1tbc"
-path="res://.godot/imported/WickedBoar.png-a6993dc0ee105223eabf7e9a9ece3b0c.ctex"
+uid="uid://lb6j0xiwpl36"
+path="res://.godot/imported/Froakiee Sprites.png-40d604c9454302b7db690ce7a167502a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Actores/Enemies/WickedBoar.png"
-dest_files=["res://.godot/imported/WickedBoar.png-a6993dc0ee105223eabf7e9a9ece3b0c.ctex"]
+source_file="res://assets/Actores/Player/Froakiee Sprites.png"
+dest_files=["res://.godot/imported/Froakiee Sprites.png-40d604c9454302b7db690ce7a167502a.ctex"]
 
 [params]
 
